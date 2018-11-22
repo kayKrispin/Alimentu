@@ -1,0 +1,113 @@
+body{
+  box-sizing: border-box;
+}
+
+.hello{
+  width: 100px;
+}
+
+.dildo {
+  margin: 0;
+  height: 400px;
+  color: white;
+  text-align: center;
+
+}
+
+.headerContainer {
+  background-color: red;
+}
+
+header {
+  color: blue;
+}
+
+nav{
+  padding: 0!important;
+  margin-bottom: 20px;
+
+}
+
+a{
+  text-decoration: none;
+  color: #345a80!important;
+}
+
+ul {
+  display: inline-block;
+  justify-content: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e1ebf4 ;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  background: white;
+  li{
+    min-width: 222px;
+    background-color: white;
+    color: #345a80!important;
+    border-left: 1px solid #e1ebf4;
+    a{
+      color:#345a80 !important;
+      position: relative!important;
+      padding: 20px!important;
+      font-weight: 600;
+    }
+  }
+}
+
+.firstActive {
+  background-color: #345a80;
+  color: white!important;
+}
+
+.firstActive::after {
+  display: block;
+  content: '';
+  background: #345a80;
+  height: 64px;
+  width: 1000px;
+  position: absolute;
+  left: -999px;
+  top: 0;
+
+}
+
+.lastItem::after{
+  background: white!important;
+}
+
+
+.exitItem {
+  border-right: none;
+}
+
+.exitItem ::after {
+  display: block;
+  content: '';
+  position: absolute;
+  height: 64px;
+  background: white;
+  top: 0;
+  left: 222px;
+}
+
+
+li.firstActive :hover {
+  background-color: white!important;
+  a{
+    color:  #345a80!important;
+
+  }
+}
+
+li:hover{
+  background-color: #345a80;
+    a{
+      color: white!important;
+
+    }
+}
+
+img {
+  max-width: 620px;
+}
