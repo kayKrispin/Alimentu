@@ -8,6 +8,7 @@
     "moment": "^2.22.2",
     "node-sass": "^4.10.0",
     "normalizr": "^3.3.0",
+    "nuka-carousel": "^4.4.3",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",

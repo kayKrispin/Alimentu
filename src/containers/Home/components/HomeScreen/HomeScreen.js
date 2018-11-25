@@ -1,11 +1,41 @@
 import React from 'react';
 import Header from '../../../../components/Header';
 import Footer from '../../../../components/Footer';
+import Carousel from 'nuka-carousel';
 
+var Decorators = [{
+    component: (props) => {
+            return (
+                <button
+                    onClick={this.props.previousSlide}>
+                    TERRIBLE!!!
+                </button>
+            )
+    },
+    position: 'TopLeft',
+    style: {
+        pointerEvents: 'none',
+        padding: 20
+    }
+}];
 
 const HomeScreen = ( { } ) => (
     <div className='dildo'>
         <Header/>
+        <Carousel
+            wrapAround={true}
+            renderCenterLeftControls={({ previousSlide }) => (
+                <div className='arrow-left' onClick={previousSlide}></div>
+            )}
+            renderCenterRightControls={({ nextSlide }) => (
+                <div className='arrow-right' onClick={nextSlide}></div>
+            )}
+            renderBottomCenterControls={false}
+        >
+            <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>
+            <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
+            <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"/>
+        </Carousel>
             <div className='container'>
                 <div className='row' >
                     <div className='col-md-12'>
