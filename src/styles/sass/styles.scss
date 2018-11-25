@@ -1,5 +1,6 @@
 body{
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .hello{
@@ -15,11 +16,13 @@ body{
 }
 
 .headerContainer {
-  background-color: red;
 }
 
 header {
   color: blue;
+  position: fixed;
+  width: 100%;
+  z-index: 900;
 }
 
 nav{
@@ -64,7 +67,7 @@ ul {
   display: block;
   content: '';
   background: #345a80;
-  height: 64px;
+  height: 63px;
   width: 1000px;
   position: absolute;
   left: -999px;
@@ -85,7 +88,7 @@ ul {
   display: block;
   content: '';
   position: absolute;
-  height: 64px;
+  height: 62px;
   background: white;
   top: 0;
   left: 222px;
@@ -106,8 +109,251 @@ li:hover{
       color: white!important;
 
     }
+
+
 }
 
+.exitItem:hover:after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 64px;
+    top: 0;
+    left: 1222px;
+    width: 1000px;
+    background: #345a80;
+  }
+
+
+
 img {
-  max-width: 620px;
+  margin-top: 80px;
+  background-size: cover;
+  width: 100%;
+}
+
+  .firstActive:hover {
+    color:#345a80!important;
+    background: white;
+  }
+
+.firstActive:hover:after {
+  color:#345a80!important;
+  background: white;
+}
+
+
+.imgBtm {
+  text-transform: uppercase;
+  color: #d9d4ba;
+  letter-spacing: 3px;
+  font: 700 20px/18px "Roboto Condensed", sans-serif;
+}
+
+.imgScndBtm {
+  color: #345a80;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 80px;
+  position: relative;
+}
+
+.imgScndBtm:after {
+  display: block;
+  content: '';
+  position: absolute;
+  height: 3px;
+  top: -20px;
+  left: 50%;
+  width: 30px;
+  background:  #d9d4ba;
+}
+
+.imgScndBtm:before {
+  display: block;
+  content: '';
+  position: absolute;
+  height: 3px;
+  top: 100px;
+  left: 50%;
+  width: 30px;
+  background:  #d9d4ba;
+}
+
+
+.midlContetnImg {
+  display: block;
+  margin-top: 40px;
+  background: url("../../page1_img1.png") no-repeat center;
+  padding: 181px 0 193px;
+  background-size: cover;
+}
+
+.fas{
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+
+.midlContentH {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  position: relative;
+}
+
+
+.midlContentH::after{
+  display: block;
+  content: '';
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  left: 45.5%;
+  margin: 20px 0;
+}
+
+.midlContentH::before{
+  display: block;
+  content: '';
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  left: 45.5%;
+  margin-bottom: 40px;
+  margin-top: -19px;
+}
+
+.scndP{
+  margin-top: 40px;
+}
+
+.backBack {
+  color: #c5c0a6;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding-top: 38px;
+  padding-right: 95px;
+
+}
+
+.backContainer {
+  height: 150px;
+  background:  white;
+  color: #345a80;
+}
+
+.backMain {
+  z-index: 2000;
+  position: relative;
+  top: -70px;
+}
+
+.freeConsult {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+font-weight: 900;
+}
+
+
+.callUs {
+  color: #345a80;
+  font-weight: 900;
+  margin: 0;
+  margin-top: 52px;
+}
+
+
+.phone {
+  font-size: 40px;
+  color: #c5c0a6;
+  margin: 0;
+}
+
+
+.schedule {
+  color: grey;
+}
+
+.chatOn {
+  background: #345a80;
+}
+
+
+.registerNow {
+  background: #c5c0a6;
+  text-align:start;
+cursor: pointer;
+}
+
+.registerNow:hover{
+  background: cornflowerblue;
+}
+
+.registerP {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  margin-left: 30px;
+  padding-top: 7px
+}
+
+.needLegalCon {
+  margin-top: 50px;
+  position: relative;
+
+}
+
+
+.needLegalCon:before {
+  display: block;
+  content: '';
+  height: 3px;
+  width:  30px;
+  left: 48.5%;
+  background: #c5c0a6;
+  position: absolute;
+}
+
+.needLegal {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 40px;
+  font-weight: 900;
+  color: #345a80;
+  padding-top: 30px;}
+
+
+.readMe {
+  color:#345a80 ;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 900;
+  position: relative;
+}
+
+.readMe:after {
+  margin-top: 10px;
+  display: block;
+  content: '';
+  position: absolute;
+  left: 48.5%;
+  height: 4px;
+  width: 30px;
+  color: #345a80;
+  background: #345a80;
+
+}
+
+.activitis:hover {
+  background: white;
+  color: #345a80;
+}
+
+.activitis:hover:after{
+  color: #345a80;
+  background: #345a80;
 }

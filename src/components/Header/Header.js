@@ -32,7 +32,7 @@ const Header = ( {
                         <a className="nav-link" href="#">Ціни</a>
                     </li>
                     <li  className="nav-item exitItem ">
-                        <a className="nav-link" href="#">Логін</a>
+                        <a className="nav-link navLinkFinale" href="#">Логін</a>
                     </li>
                 </ul>
             </div>
