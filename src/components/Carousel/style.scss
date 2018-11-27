@@ -1,0 +1,70 @@
+
+.carousel {
+  display: block!important;
+  position: relative;
+  height: 100%;
+}
+
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 4px;
+  pointer-events: auto!important;
+}
+
+.bar {
+  flex: 1 1 auto;
+  height: 4px;
+  margin-left: 4px;
+  background-color: white;
+  cursor: pointer;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.activeBar {
+  background-color: white!important;
+}
+
+.previous, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  pointer-events: auto!important;
+
+  svg {
+    width: 14px;
+    fill: white;
+  }
+}
+
+.previous {
+  left: 2;
+}
+
+.next {
+  right: 2;
+}
+
+.image {
+  width: 100%!important;
+  height: 100%!important;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+}
+
+:global {
+  .slider {
+    visibility: visible!important;
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../../../components/Header';
 import Footer from '../../../../components/Footer';
+import Carousel from '../../../../components/Carousel'
 
 
 const HomeScreen = ( { } ) => (
@@ -16,7 +17,7 @@ const HomeScreen = ( { } ) => (
                 </div>
             </div>
         <div style={{display:'block'}} className='row'>
-            <div className='midlContetnImg' >
+            <div style={{color:'white'}} className='midlContetnImg' >
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-3 activitis'>
@@ -82,7 +83,52 @@ const HomeScreen = ( { } ) => (
                 </div>
             </div>
         </div>
+        <Carousel slides='3'/>
+            <p className='betweenS'></p>
+            <h3 className='foundary' >Засноване у 2017 наше агентво <br/> має 3 адвокатів!!!</h3>
 
+        <div className="container">
+            <div className="row">
+                <div className='singleLawyer'>
+                    <div style ={{paddingRight:'200px'}} className="col-md-6  col-sm-12">
+                        <h1 className='name'>Бартків Андрій</h1>
+                        <p className='prof' >(Адвокат)</p>
+                        <p>7 років досвіду</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        <div className='socials' >
+                            <i className="fab fa-linkedin"></i>
+                            <i className="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                    <div className="col-md-6 col-sm-12">
+                        <ul className='laws'>
+                            <li>
+                                <p>Кримінальне право</p>
+                            </li>
+                            <li>
+                                <p>Цивільне право</p>
+                            </li>
+                            <li>
+                                <p>Трудове право</p>
+                            </li>
+                            <li>
+                                <p>Екологічне право</p>
+                            </li>
+                            <li>
+                                <p>Міжнародне право</p>
+                            </li>
+                            <li>
+                                <p>Податкове право</p>
+                            </li>
+                            <li>
+                                <p>Фінансове прао</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Carousel slides='1'/>
         <Footer/>
     </div>
 );
