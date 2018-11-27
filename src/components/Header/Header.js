@@ -9,12 +9,12 @@ const Header = ( {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div   className="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul style={{width:'100%'}} className="navbar-nav">
+                <ul style={{width:'100%'}} className="navbar-nav headerMain">
                     <li className="nav-item active ">
-                        <a className="nav-link firstActive" href="#"> Головна<span className="sr-only">(current)</span></a>
+                        <a className="nav-link firstActive" href="home"> Головна<span className="sr-only">(current)</span></a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Про нас</a>
+                        <a className="nav-link" href="about">Про нас</a>
                     </li>
 
                     <li className="nav-item dropdown">
@@ -29,10 +29,10 @@ const Header = ( {
                         </div>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Ціни</a>
+                        <a className="nav-link" href="prices">Ціни</a>
                     </li>
                     <li  className="nav-item exitItem ">
-                        <a className="nav-link navLinkFinale" href="#">Логін</a>
+                        <a className="nav-link navLinkFinale" href="login">Логін</a>
                     </li>
                 </ul>
             </div>
