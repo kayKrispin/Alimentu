@@ -3,22 +3,6 @@ import Header from '../../../../components/Header';
 import Footer from '../../../../components/Footer';
 import Carousel from 'nuka-carousel';
 
-var Decorators = [{
-    component: (props) => {
-            return (
-                <button
-                    onClick={this.props.previousSlide}>
-                    TERRIBLE!!!
-                </button>
-            )
-    },
-    position: 'TopLeft',
-    style: {
-        pointerEvents: 'none',
-        padding: 20
-    }
-}];
-
 const HomeScreen = ( { } ) => (
     <div className='dildo'>
         <Header/>
