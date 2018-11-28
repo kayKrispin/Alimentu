@@ -36,9 +36,9 @@ ul {
     min-width: 222px;
     background-color: white;
     color: #345a80 !important;
-    border-left: 1px solid #e1ebf4; }
+    transition: opacity 2.5s ease-in-out 0.5s;
+    opacity: 1; }
     ul li a {
-      color: #345a80 !important;
       position: relative !important;
       padding: 20px !important;
       font-weight: 600; }
@@ -51,7 +51,7 @@ ul {
   display: block;
   content: '';
   background: #345a80;
-  height: 63px;
+  height: 64px;
   width: 1000px;
   position: absolute;
   left: -999px;
@@ -72,17 +72,20 @@ ul {
   top: 0;
   left: 222px; }
 
-li:hover {
-  background-color: #345a80; }
-  li:hover a {
+li.headerLi:hover {
+  background-color: #345a80;
+  opacity: 0.4; }
+  li.headerLi:hover a.moreItems {
     color: white !important; }
-  li:hover a.firstActive {
+  li.headerLi:hover a.firstActive {
     color: #345a80; }
 
 li a.firstActive :hover {
   background-color: white !important; }
   li a.firstActive :hover a {
     color: #345a80 !important; }
+  li a.firstActive :hover li a.exitItem:hover {
+    color: white; }
 
 .exitItem:hover:after {
   display: block;
@@ -309,12 +312,6 @@ svg {
 .slideImg {
   height: 200px; }
 
-.footerP {
-  color: #d9e5ee;
-  letter-spacing: 8px;
-  font-weight: 600;
-  font-size: 40px; }
-
 #btnTop {
   display: none;
   position: fixed;
@@ -365,10 +362,8 @@ svg {
 .singleLawyer {
   background: url("https://www.plc.if.ua/wp-content/uploads/2016/08/ba.jpg") no-repeat center;
   width: 100%;
-  height: 500px;
   display: flex;
-  align-items: center;
-  border: 1px solid red; }
+  align-items: center; }
 
 .laws {
   font-weight: 900;
@@ -376,5 +371,141 @@ svg {
   margin-left: 20px;
   border: none;
   border-left: none !important; }
+  .laws i {
+    font-size: 20px; }
   .laws .fas {
-    font-size: 40px; }
+    font-size: 20px; }
+  .laws .fab {
+    font-size: 20px; }
+
+.fab {
+  font-size: 40px;
+  margin-right: 10px; }
+
+.fab:hover {
+  color: cornflowerblue; }
+
+.fas:hover {
+  color: cornflowerblue; }
+
+i {
+  font-size: 40px; }
+
+.name {
+  color: #345a80; }
+
+.prof {
+  color: #345a80; }
+
+.singleLawyer {
+  border: none; }
+
+.ant-modal-close {
+  text-align: center; }
+
+.topImg {
+  max-width: 600px; }
+
+.socials {
+  display: flex;
+  justify-content: left;
+  cursor: pointer; }
+  .socials i {
+    fill: red; }
+
+.headerLi {
+  border-left: 1px solid #e1ebf4; }
+
+.lawL {
+  cursor: pointer; }
+
+.lawL:hover {
+  background: cornflowerblue; }
+
+.moreItems {
+  color: #345a80 !important; }
+
+.moreItems:hover {
+  color: #345a80 !important; }
+
+.firstActive {
+  background: #345a80;
+  color: white !important; }
+
+.footer {
+  padding-top: 80px;
+  background: #345a80;
+  margin-top: 10px;
+  padding-bottom: 200px;
+  text-align: left; }
+
+.secondF {
+  padding-top: 50px; }
+
+.phoneF {
+  font-size: 30px;
+  color: white; }
+
+.fotterP {
+  font-size: 15px;
+  color: white;
+  margin: 0; }
+
+footer:before {
+  height: 12.5vw;
+  background: #424242;
+  width: 200%;
+  left: 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: rotate(14deg);
+  transform: rotate(14deg); }
+
+footer:after {
+  height: 25.5vw;
+  background: #eee;
+  width: 200%;
+  right: 0;
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  -webkit-transform: rotate(-19.7deg);
+  transform: rotate(-19.7deg); }
+
+.footerR {
+  margin-top: 10px;
+  font-size: 15px;
+  color: white;
+  letter-spacing: 8px;
+  font-weight: 600; }
+
+.pageFooter {
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden; }
+
+.pageFooter:after {
+  position: absolute;
+  display: block;
+  content: '';
+  height: 25.5vw;
+  background: #eee;
+  width: 590px;
+  right: 0;
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  -webkit-transform: rotate(-19.7deg);
+  transform: rotate(-20.7deg); }
+
+.pageFooter:before {
+  position: absolute;
+  top: 408px;
+  display: block;
+  content: '';
+  height: 14.5vw;
+  background: #424242;
+  width: 474px;
+  left: 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: rotate(14deg);
+  transform: rotate(14deg); }

@@ -3,11 +3,11 @@ import { applyMiddleware,createStore } from 'redux';
 import logger from 'redux-logger';
 import { combineReducers } from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { reducer as authReducer } from './modules/Auth/';
+import { reducer as authStore } from './modules/Auth/';
 
 
 const reducers = {
-    authReducer
+    authStore
 };
 
 
