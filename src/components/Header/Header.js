@@ -27,7 +27,7 @@ const Header = ( {
                         <Link className="nav-link firstActive moreItems" to="/"> Головна<span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item headerLi">
-                        <Link className="nav-link moreItems" to="/about">Про нас</Link>
+                        <Link className="nav-link moreItems" to="/about">Створи документ</Link>
                     </li>
 
                     <li className="nav-item dropdown headerLi">
@@ -36,9 +36,10 @@ const Header = ( {
                             Більше
                         </a>
                         <div  className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            { fakeLoggedIn ? <a className="dropdown-item " href="#"> Мій кабінет</a>  : null}
+                            { fakeLoggedIn ? <Link className="dropdown-item " to="/mycabinet"> Мій кабінет</Link>  : null}
                             <a className="dropdown-item " href="#">Список документів</a>
                             <a className="dropdown-item " href="#">Зворотній зв"язок</a>
+                            <a className="dropdown-item " href="#">Про нас</a>
                         </div>
                     </li>
                     <li className="nav-item headerLi ">

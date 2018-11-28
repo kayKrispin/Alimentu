@@ -36,7 +36,7 @@ ul {
     min-width: 222px;
     background-color: white;
     color: #345a80 !important;
-    transition: opacity 2.5s ease-in-out 0.5s;
+    transition: opacity 1s ease-in-out 0.5s;
     opacity: 1; }
     ul li a {
       position: relative !important;
@@ -74,7 +74,7 @@ ul {
 
 li.headerLi:hover {
   background-color: #345a80;
-  opacity: 0.4; }
+  opacity: 0.7; }
   li.headerLi:hover a.moreItems {
     color: white !important; }
   li.headerLi:hover a.firstActive {

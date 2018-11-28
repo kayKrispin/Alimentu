@@ -1,3 +1,6 @@
+@import '../../config/style/variables';
+
+
 body{
   box-sizing: border-box;
   overflow-x: hidden;
@@ -33,7 +36,7 @@ nav{
 
 a{
   text-decoration: none;
-  color: #345a80!important;
+  color: $color-mainblue!important;
 }
 
 ul  {
@@ -47,8 +50,8 @@ ul  {
   li {
     min-width: 222px;
     background-color: white;
-    color: #345a80!important;
-    transition: opacity 2.5s ease-in-out 0.5s;
+    color:  $color-mainblue!important;
+    transition: opacity 1s ease-in-out 0.5s;
     opacity:1;
     a{
       position: relative!important;
@@ -59,14 +62,14 @@ ul  {
 }
 
 .firstActive {
-  background-color: #345a80;
+  background-color:  $color-mainblue;
   color: white!important;
 }
 
 .firstActive::after {
   display: block;
   content: '';
-  background: #345a80;
+  background:  $color-mainblue;
   height: 64px;
   width: 1000px;
   position: absolute;
@@ -97,8 +100,8 @@ ul  {
 
 
 li.headerLi:hover{
-  background-color: #345a80;
-  opacity:0.4;
+  background-color: $color-mainblue;
+  opacity:0.7;
 
 
     a.moreItems{
@@ -106,7 +109,7 @@ li.headerLi:hover{
 
     }
   a.firstActive{
-      color: #345a80;
+      color:  $color-mainblue;
   }
 }
 
@@ -131,7 +134,7 @@ li a.firstActive :hover {
     top: 0;
     left: 1222px;
     width: 1000px;
-    background: #345a80;
+    background:  $color-mainblue;
   }
 
 
@@ -143,12 +146,12 @@ img {
 }
 
   .firstActive:hover {
-    color:#345a80!important;
+    color: $color-mainblue!important;
     background: white;
   }
 
 .firstActive:hover:after {
-  color:#345a80!important;
+  color: $color-mainblue!important;
   background: white;
 }
 
@@ -161,7 +164,7 @@ img {
 }
 
 .imgScndBtm {
-  color: #345a80;
+  color:  $color-mainblue;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-top: 80px;
@@ -252,7 +255,7 @@ img {
 .backContainer {
   height: 150px;
   background:  white;
-  color: #345a80;
+  color:  $color-mainblue;
 }
 
 .backMain {
@@ -269,7 +272,7 @@ font-weight: 900;
 
 
 .callUs {
-  color: #345a80;
+  color:  $color-mainblue;
   font-weight: 900;
   margin: 0;
   margin-top: 52px;
@@ -288,7 +291,7 @@ font-weight: 900;
 }
 
 .chatOn {
-  background: #345a80;
+  background:  $color-mainblue;
 }
 
 
@@ -333,12 +336,12 @@ cursor: pointer;
   letter-spacing: 3px;
   font-size: 40px;
   font-weight: 900;
-  color: #345a80;
+  color:  $color-mainblue;
   padding-top: 30px;}
 
 
 .readMe {
-  color:#345a80 ;
+  color: $color-mainblue ;
   font-size: 15px;
   text-transform: uppercase;
   font-weight: 900;
@@ -353,19 +356,19 @@ cursor: pointer;
   left: 48.5%;
   height: 4px;
   width: 30px;
-  color: #345a80;
-  background: #345a80;
+  color:  $color-mainblue;
+  background:  $color-mainblue;
 
 }
 
 .activitis:hover {
   background: white;
-  color: #345a80;
+  color:  $color-mainblue;
 }
 
 .activitis:hover:after{
-  color: #345a80;
-  background: #345a80;
+  color:  $color-mainblue;
+  background:  $color-mainblue;
 }
 
 
@@ -425,7 +428,7 @@ svg {
 }
 
 #btnTop:hover {
-  color: #345a80;
+  color: $color-mainblue;
 }
 
 .slider-list {
@@ -467,7 +470,7 @@ svg {
 
 .foundary {
   margin-top: 50px;
-  color:#345a80;
+  color: $color-mainblue;
   letter-spacing: 5px;
   text-transform: uppercase;
   font-size: 35px;
@@ -517,10 +520,10 @@ i{
 }
 
 .name{
-  color: #345a80;
+  color:  $color-mainblue;
 }
 .prof {
-  color: #345a80;
+  color:  $color-mainblue;
 }
 
 .singleLawyer{
@@ -562,22 +565,22 @@ i{
 };
 
 .moreItems {
-  color:#345a80!important;
+  color: $color-mainblue!important;
 }
 
 .moreItems:hover{
-  color:#345a80!important;
+  color: $color-mainblue!important;
 
 }
 
 .firstActive {
-  background: #345a80;
+  background: $color-mainblue;
   color: white!important;
 }
 
 .footer {
   padding-top: 80px;
-  background: #345a80;
+  background:  $color-mainblue;
   margin-top: 10px;
   padding-bottom: 200px;
   text-align: left;
