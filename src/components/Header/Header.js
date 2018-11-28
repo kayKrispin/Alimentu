@@ -4,8 +4,6 @@ import { Modal } from 'antd';
 import LoginForm from '../../containers/Auth/components/LoginForm'
 import SignupForm from '../../containers/Auth/components/SignupForm'
 
-
-
 const Header = ( {
     fakeLogin,
     loggedIn,
@@ -44,7 +42,7 @@ const Header = ( {
                     <li className="nav-item headerLi ">
                         <Link className="nav-link moreItems" to="/prices">Ціни</Link>
                     </li>
-                    <li   onClick={() => { fakeLogin(!fakeLoggedIn), !fakeLoggedIn ? showLogin() : null }} className="nav-item exitItem  headerLi">
+                    <li   onClick={() => { fakeLogin(!fakeLoggedIn)}} className="nav-item exitItem  headerLi">
                         <a className="nav-link navLinkFinale moreItems" >
                             { fakeLoggedIn ? 'Вийти' : 'Логін/Регістрація' }</a>
                     </li>
