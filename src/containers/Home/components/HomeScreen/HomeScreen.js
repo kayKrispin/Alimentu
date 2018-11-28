@@ -3,6 +3,7 @@ import Header from '../../../../components/Header';
 import Footer from '../../../../components/Footer';
 
 import Carousel from '../../../../components/Carousel'
+import { BackTop } from 'antd';
 
 const HomeScreen = ( { } ) => (
     <div className='dildo'>
@@ -10,7 +11,7 @@ const HomeScreen = ( { } ) => (
             <div className='container'>
                 <div className='row' >
                     <div className='col-md-12'>
-                        <img src="https://plc.if.ua/wp-content/uploads/2017/03/baner_png.png" alt=""/>
+                        <img className='topImg' src="https://plc.if.ua/wp-content/uploads/2017/03/baner_png.png" alt=""/>
                         <h4 className='imgBtm'>Прикарпатська Юридична Фірма</h4>
                         <h2 className='imgScndBtm'>Реалізуй свої конституційні права <br/> з кваліфікованою допомогою</h2>
                     </div>
@@ -102,25 +103,25 @@ const HomeScreen = ( { } ) => (
                     </div>
                     <div className="col-md-6 col-sm-12">
                         <ul className='laws'>
-                            <li>
+                            <li className='lawL'>
                                 <p>Кримінальне право</p>
                             </li>
-                            <li>
+                            <li className='lawL'>
                                 <p>Цивільне право</p>
                             </li>
-                            <li>
+                            <li className='lawL'>
                                 <p>Трудове право</p>
                             </li>
-                            <li>
+                            <li className='lawL'>
                                 <p>Екологічне право</p>
                             </li>
-                            <li>
+                            <li className='lawL'>
                                 <p>Міжнародне право</p>
                             </li>
-                            <li>
+                            <li className='lawL'>
                                 <p>Податкове право</p>
                             </li>
-                            <li>
+                            <li className='lawL'>
                                 <p>Фінансове прао</p>
                             </li>
                         </ul>
@@ -129,6 +130,7 @@ const HomeScreen = ( { } ) => (
             </div>
         </div>
         <Carousel slides='1'/>
+        <BackTop />
         <Footer/>
     </div>
 );

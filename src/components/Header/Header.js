@@ -1,6 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Modal } from 'antd';
+import LoginForm from '../../containers/Auth/components/LoginForm'
+import SignupForm from '../../containers/Auth/components/SignupForm'
+
+
 
 const Header = ( {
+    fakeLogin,
+    loggedIn,
+    fakeLoggedIn,
+    showLogin,
+    showRegister,
+    visible,
+    visibleRegister,
 } ) => (
     <header className='headerContainer'>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -10,30 +23,47 @@ const Header = ( {
             </button>
             <div   className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul style={{width:'100%'}} className="navbar-nav headerMain">
-                    <li className="nav-item active ">
-                        <a className="nav-link firstActive" href="home"> Головна<span className="sr-only">(current)</span></a>
+                    <li className="nav-item active   ">
+                        <Link className="nav-link firstActive moreItems" to="/"> Головна<span className="sr-only">(current)</span></Link>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="about">Про нас</a>
+                    <li className="nav-item headerLi">
+                        <Link className="nav-link moreItems" to="/about">Про нас</Link>
                     </li>
 
-                    <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle lastItem" href="#" id="navbarDropdownMenuLink"
+                    <li className="nav-item dropdown headerLi">
+                        <a className="nav-link dropdown-toggle lastItem moreItems" href="#" id="navbarDropdownMenuLink"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Більше
                         </a>
-                        <div style={{backgroundColor:'  #345a80'}} className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a className="dropdown-item" href="#">Логін</a>
-                            <a className="dropdown-item" href="#">Регістрація</a>
-                            <a className="dropdown-item" href="#">Контакти</a>
+                        <div  className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            { fakeLoggedIn ? <a className="dropdown-item " href="#"> Мій кабінет</a>  : null}
+                            <a className="dropdown-item " href="#">Список документів</a>
+                            <a className="dropdown-item " href="#">Зворотній зв"язок</a>
                         </div>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="prices">Ціни</a>
+                    <li className="nav-item headerLi ">
+                        <Link className="nav-link moreItems" to="/prices">Ціни</Link>
                     </li>
-                    <li  className="nav-item exitItem ">
-                        <a className="nav-link navLinkFinale" href="login">Логін</a>
+                    <li   onClick={() => { fakeLogin(!fakeLoggedIn), !fakeLoggedIn ? showLogin() : null }} className="nav-item exitItem  headerLi">
+                        <a className="nav-link navLinkFinale moreItems" >
+                            { fakeLoggedIn ? 'Вийти' : 'Логін/Регістрація' }</a>
                     </li>
+                    <Modal
+                        title="Login Form"
+                        visible={visible}
+                        onOk={showLogin}
+                        onCancel={showLogin}
+                    >
+                    <LoginForm showRegister ={showRegister}/>
+                    </Modal>
+                    <Modal
+                        title="Register Form"
+                        visible={visibleRegister}
+                        onOk={showRegister}
+                        onCancel={showRegister}
+                    >
+                        <SignupForm/>
+                    </Modal>
                 </ul>
             </div>
         </nav>
