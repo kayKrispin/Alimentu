@@ -16,6 +16,16 @@ class HeaderContainer extends React.Component {
         });
     };
 
+    handleLogin = ( login ) => {
+        this.props.fakeLogin(login);
+        const openModal = !this.props.fakeLoggedIn ? this.showLogin : this.zaglushka;
+        openModal();
+    };
+
+    zaglushka = () => {
+
+    }
+
     showRegister = () => {
         this.setState({
             visible:false,
@@ -40,7 +50,8 @@ class HeaderContainer extends React.Component {
             ...this.state,
             onFakeAuthClick: this.onFakeAuthClick,
             showLogin: this.showLogin,
-            showRegister:this.showRegister,
+            showRegister: this.showRegister,
+            handleLogin: this.handleLogin
         }
     };
 

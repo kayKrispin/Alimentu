@@ -36,7 +36,7 @@ nav{
 
 a{
   text-decoration: none;
-  color: $color-mainblue!important;
+  color: $color-mainblue;
 }
 
 ul  {
@@ -101,7 +101,7 @@ ul  {
 
 li.headerLi:hover{
   background-color: $color-mainblue;
-  opacity:0.7;
+  opacity:0.9;
 
 
     a.moreItems{
@@ -524,7 +524,7 @@ i{
 .prof {
   color:  $color-mainblue;
 }
-}
+
 
 .singleLawyer{
   border: none;
@@ -667,4 +667,84 @@ footer:after {
   transform-origin: 0 0;
   -webkit-transform: rotate(14deg);
   transform: rotate(14deg);
+}
+
+
+.createDoc {
+  margin-top: 40px;
+  margin-left: 20px;
+  background: none;
+  color: $color-mainblue;
+  width: 240px;
+  height: 80px;
+  border: 1px solid $color-mainblue;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: .6s;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 40px;
+  position: relative;
+
+  a{
+    color: $color-mainblue;
+  }
+}
+
+.createDoc:focus{
+  outline: none;
+}
+
+.createDoc:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background: rgba(255,255,255,.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  filter: blur(30px);
+  transform: translateX(-130px) skewX(-15deg);
+
+}
+
+
+.createDoc:after {
+  content: '';
+  position: absolute;
+  display: block;
+  background: rgba(255,255,255,.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: .5;
+  filter: blur(30px);
+  transform: translateX(-100px) scaleX(-15deg);
+
+}
+
+.createDoc:hover {
+  background: $color-mainblue;
+  cursor: pointer;
+  color: white;
+  a{
+    color:white;
+    text-decoration: none;
+  }
+}
+
+.createDoc:hover:after {
+  opacity: 1;
+  transition: .7s;
+  transform: translateX(300px) skewX(-15deg);
+}
+
+.createDoc:hover:before {
+  opacity: .6;
+  transition: .7s;
+  transform: translateX(300px) skewX(-15deg);
 }
