@@ -1,3 +1,10 @@
 import Documents from './Documents';
+import React from 'react';
 
-export default Documents;
+class DocumentsContainer extends React.Component {
+    render() {
+        return <Documents />
+    }
+}
+
+export default DocumentsContainer;

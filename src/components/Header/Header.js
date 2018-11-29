@@ -14,7 +14,7 @@ const Header = ( {
     visibleRegister,
     handleLogin,
 } ) => (
-    <header className='headerContainer'>
+    <header style={{position:'fixed'}} className='headerContainer'>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,8 +44,8 @@ const Header = ( {
                     <li className="nav-item headerLi ">
                         <Link className="nav-link moreItems" to="/prices">Ціни</Link>
                     </li>
-                    <li   onClick={() => { handleLogin(!fakeLoggedIn)}} className="nav-item exitItem  headerLi">
-                        <a className="nav-link navLinkFinale moreItems" >
+                    <li   onClick={() => { fakeLogin(!fakeLoggedIn), !fakeLoggedIn ? showLogin() : null }} className="nav-item   headerLi">
+                        <a className="nav-link navLinkFinale moreItems exitItem" >
                             { fakeLoggedIn ? 'Вийти' : 'Логін/Регістрація' }</a>
                     </li>
                     <Modal

@@ -54,6 +54,7 @@ ul  {
     transition: opacity 1s ease-in-out 0.5s;
     opacity:1;
     a{
+      text-align: center;
       position: relative!important;
       padding: 20px!important;
       font-weight: 600;
@@ -70,7 +71,7 @@ ul  {
   display: block;
   content: '';
   background:  $color-mainblue;
-  height: 64px;
+  height: 63px;
   width: 1000px;
   position: absolute;
   left: -999px;
@@ -85,16 +86,22 @@ ul  {
 
 .exitItem {
   border-right: none;
+  position: relative;
 }
 
 .exitItem ::after {
   display: block;
   content: '';
   position: absolute;
-  height: 62px;
+  height: 61px;
   background: white;
   top: 0;
-  left: 222px;
+  left: 322px;
+}
+
+.exitItem:hover:after {
+  background:  $color-mainblue;
+
 }
 
 
@@ -122,6 +129,9 @@ li a.firstActive :hover {
   li {
     a.exitItem:hover {
       color: white;
+    }
+    a.exitItem:hover:after {
+      background:  $color-mainblue;
     }
   }
 }
@@ -153,6 +163,10 @@ img {
 .firstActive:hover:after {
   color: $color-mainblue!important;
   background: white;
+}
+.exitItem:hover:after {
+  color: $color-mainblue!important;
+  background: $color-mainblue!important;
 }
 
 
@@ -483,7 +497,22 @@ svg {
   align-items: center;
 }
 
-.laws {
+.singleLawyerP{
+   background: url("https://www.plc.if.ua/wp-content/uploads/2016/08/pi.jpg") no-repeat center; ;
+   width: 100%;
+   display: flex;
+   align-items: center;
+ }
+
+.singleLawyerV{
+  background: url("https://www.plc.if.ua/wp-content/uploads/2016/08/gv.jpg") no-repeat center; ;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+ .laws {
   font-weight: 900;
   list-style: none;
   margin-left: 20px;
@@ -747,4 +776,55 @@ footer:after {
   opacity: .6;
   transition: .7s;
   transform: translateX(300px) skewX(-15deg);
+}
+
+.laws {
+  text-align: right!important;
+}
+
+.slider-control-center-left {
+  top: 43%;
+  left: -47px;
+}
+
+.slider-control-centerright {
+  top: 48%;
+  right: -47px;
+}
+
+.slidBtn:focus {
+  outline: none;
+}
+
+
+.ant-select-dropdown-menu{
+ width: 100%;
+}
+
+.pozovF {
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pozov {
+  width:100%;
+  h3{
+    padding-left: 10px;
+  }
+
+  label{
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+}
+
+.pozovHead {
+  color: white;
+  background: #345a80;
+}
+
+
+label {
+  width: 150px;
 }
