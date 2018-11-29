@@ -5,6 +5,7 @@ import HomeScreen from './containers/Home';
 import AboutScreen from './containers/About';
 import PricesScreen from './containers/Prices';
 import UserArea from './containers/UserArea';
+import Documents from './containers/Documents';
 import GuestRoute from './containers/Routes/GuestRoute.js';
 import UserRoute from './containers/Routes/UserRoute.js';
 import { Route } from "react-router-dom";
@@ -17,6 +18,7 @@ class App extends Component {
     return (
       <div className="App">
           <Route exact path='/' component={ HomeScreen } />
+          <Route exact path='/document' component={ Documents } />
           <GuestRoute
               location={ location }
               path="/about"

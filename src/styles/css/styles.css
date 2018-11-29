@@ -22,7 +22,7 @@ nav {
 
 a {
   text-decoration: none;
-  color: #345a80 !important; }
+  color: #345a80; }
 
 ul {
   display: inline-block;
@@ -74,7 +74,7 @@ ul {
 
 li.headerLi:hover {
   background-color: #345a80;
-  opacity: 0.7; }
+  opacity: 0.9; }
   li.headerLi:hover a.moreItems {
     color: white !important; }
   li.headerLi:hover a.firstActive {
@@ -509,3 +509,69 @@ footer:after {
   transform-origin: 0 0;
   -webkit-transform: rotate(14deg);
   transform: rotate(14deg); }
+
+.createDoc {
+  margin-top: 40px;
+  margin-left: 20px;
+  background: none;
+  color: #345a80;
+  width: 240px;
+  height: 80px;
+  border: 1px solid #345a80;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: .6s;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 40px;
+  position: relative; }
+  .createDoc a {
+    color: #345a80; }
+
+.createDoc:focus {
+  outline: none; }
+
+.createDoc:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .5;
+  filter: blur(30px);
+  transform: translateX(-130px) skewX(-15deg); }
+
+.createDoc:after {
+  content: '';
+  position: absolute;
+  display: block;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: .5;
+  filter: blur(30px);
+  transform: translateX(-100px) scaleX(-15deg); }
+
+.createDoc:hover {
+  background: #345a80;
+  cursor: pointer;
+  color: white; }
+  .createDoc:hover a {
+    color: white;
+    text-decoration: none; }
+
+.createDoc:hover:after {
+  opacity: 1;
+  transition: .7s;
+  transform: translateX(300px) skewX(-15deg); }
+
+.createDoc:hover:before {
+  opacity: .6;
+  transition: .7s;
+  transform: translateX(300px) skewX(-15deg); }
