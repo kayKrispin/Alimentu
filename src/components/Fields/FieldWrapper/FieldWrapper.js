@@ -1,10 +1,27 @@
-import React from '.react';
+import React from 'react';
+import { Field } from 'redux-form';
 
-const FieldWrapper = ( { } ) => (
+const FormField = ({
+    children,
+}) => (
   <div>
-      <h1>Hello</h1>
+      {children}
   </div>
 );
+
+
+const FieldWrapper  =  WrappedField => props => (
+    <WrappedField {...props} {...props.input} />
+);
+
+export default ( WrappedField ) => {
+    const MyField = FieldWrapper(WrappedField);
+    return props =>(
+      <FormField>
+        <Field {...props} component={MyField} />
+      </FormField>
+    );
+}
 
 
 export default FieldWrapper;

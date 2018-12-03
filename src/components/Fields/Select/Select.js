@@ -11,7 +11,7 @@ const Select = ({
                     type,onInputChange,
 
 
-                }) => (
+                }) => (s
     <ReactSelect
         onInputChange={onInputChange}
         placeholder={placeholder}
