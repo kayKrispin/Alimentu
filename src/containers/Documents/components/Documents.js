@@ -4,6 +4,10 @@ import Footer from  '../../../components/Footer';
 import { Select } from 'antd';
 import documentsList from './documentsList';
 import { Form, Row, Col, Input, Button, Icon } from 'antd';
+import AutoForm from '../../../components/AutoForm';
+import {Field, reduxForm} from 'redux-form';
+
+
 
 const FormItem = Form.Item;
 
@@ -84,11 +88,14 @@ const children = [];
 for (let i = 0; i < documentsList.length; i++) {
     children.push(<Option key={documentsList[i]}>{documentsList[i]}</Option>);
 }
-function handleChange(value) {
-    console.log(`selected ${value}`);
-}
 
-const Documents = ( { } ) => (
+
+const Documents = ({
+                       handleChange,
+                       statementOfClaime,
+                       handleSubmit,
+                       formSchema
+                    }) => (
     <div>
 		<Header/>
         <div style={{paddingTop:'85px'}} className="container">
@@ -103,34 +110,31 @@ const Documents = ( { } ) => (
                 </Select>
 			</div>
 			<div className="row pozovF">
-                <form className='pozov' action="">
-			  <h3 className='pozovHead'>  <strong>1.</strong>	Шапка позовної за'яви.</h3>
-					<div className="row">
-						<div className="col-md-4"> <label htmlFor="lastname"><strong>1.1:</strong> Назва суду</label>
-                            <input type="text" id="lastname"/></div>
-                        <div  style={{textAlign:"center"}} className="col-md-4">      <label htmlFor="lastname">Місто суду </label>
-                            <input type="text" id="lastname"/></div>
-                        <div style={{textAlign:"end"}} className="col-md-4">   <label htmlFor="lastname">Адреса суду</label>
-                            <input type="text" id="lastname"/></div>
-                        <div className="col-md-4"> <label htmlFor="lastname"><strong>1.1:</strong> Позивач П.І.Б</label>
-                            <input type="text" id="lastname"/></div>
-                        <div  style={{textAlign:"center"}} className="col-md-4">      <label htmlFor="lastname">Адреса </label>
-                            <input type="text" id="lastname"/></div>
-                        <div style={{textAlign:"end"}} className="col-md-4">   <label htmlFor="lastname">Телефон</label>
-                            <input type="text" id="lastname"/></div>
-                        <div className="col-md-4"> <label htmlFor="lastname"><strong>1.1:</strong> Відповідач</label>
-                            <input type="text" id="lastname"/></div>
-                        <div  style={{textAlign:"center"}} className="col-md-4">      <label htmlFor="lastname">Адресса</label>
-                            <input type="text" id="lastname"/></div>
-                        <div style={{textAlign:"end"}} className="col-md-4">   <label htmlFor="lastname">Телефон</label>
-                            <input type="text" id="lastname"/></div>
-					</div>
-                    <h3 className='pozovHead'>  <strong>2.</strong>	Основна інформація.</h3>
-                </form>
+                {statementOfClaime !== '' ?( <div className='pozov' action="">
+                    <h3 className='pozovHead'>  <strong>1.</strong>	Шапка позовної за'яви:</h3>
+                    <div className="row">
+                        <AutoForm
+                            id="profile"
+                            schema={formSchema}
+                            onSubmit={handleSubmit}
+                            submitText="Update"
+                        />
+                    </div>
+                    <h3 style={{position:'relative',bottom:"520px"}} className='pozovHead'>  <strong>2.</strong>	Основна інформація:</h3>
+
+                    <h3 style={{marginTop:'10px',position:'relative', bottom:"270px"}} className='pozovHead'>  <strong>3.</strong>	Прошу :</h3>
+
+
+                </div>) :(<h1>Please select some kind of Statemet of Claime</h1>) }
+
             </div>
         </div>
         <Footer/>
     </div>
 )
+
+
+
+
 
 export default Documents;

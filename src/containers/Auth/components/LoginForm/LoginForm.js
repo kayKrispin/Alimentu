@@ -1,5 +1,10 @@
 import React from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import SocialSignIn from '../SocialSignIn';
+import { connect } from 'react-redux';
+import { actions as authActions, selectors as authSelectors } from '../../../../store/modules/Auth';
+import {error} from "../../../../store/modules/Auth/actions";
+
 
 const FormItem = Form.Item;
 
@@ -8,21 +13,24 @@ class LoginForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                this.props.handleLogin(values)
             }
         });
     };
 
     render() {
-        console.log('pre',this.props)
         const { getFieldDecorator } = this.props.form;
         return (
             <Form onSubmit={this.handleSubmit} className="login-form">
+                <div className='logReg'>
+                    <span className='alreadyReg' >Already registered?</span>
+                    <span onClick={ ()=> this.props.showRegister() } className='registerTab'>Register</span>
+                </div>
                 <FormItem>
-                    {getFieldDecorator('userName', {
-                        rules: [{ required: true, message: 'Please input your username!' }],
+                    {getFieldDecorator('email', {
+                        rules: [{ required: true, message: 'Please input your email!' }],
                     })(
-                        <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+                        <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
                     )}
                 </FormItem>
                 <FormItem>
@@ -44,8 +52,10 @@ class LoginForm extends React.Component {
                         Log in
                     </Button>
                     <br/>
-                    Or <a  onClick={ ()=> this.props.showRegister() }>register now!</a>
+                    Or login with...
+                    <p className='duplicate'>{this.props.error}</p>
                 </FormItem>
+                <SocialSignIn/>
             </Form>
         );
     }
@@ -53,4 +63,15 @@ class LoginForm extends React.Component {
 
 const WrappedLoginForm = Form.create()(LoginForm);
 
-export default WrappedLoginForm;
+const mapStateToProps = state => ({
+    error:authSelectors.getError(state)
+})
+
+const mapDispatchToProps = dispatch => ({
+   handleLogin(data){
+        dispatch(authActions.loginUser(data))
+   }
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedLoginForm);

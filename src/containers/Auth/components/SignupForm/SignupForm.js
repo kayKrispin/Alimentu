@@ -1,5 +1,8 @@
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 import React from 'react';
+import { connect  } from 'react-redux';
+import { actions as authActions, selectors as authSelectors } from '../../../../store/modules/Auth';
+
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -39,15 +42,16 @@ class SignupForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                this.props.handleRegister(values)
+                //this.props.handleRegister(values)
             }
         });
-    }
+    };
 
     handleConfirmBlur = (e) => {
         const value = e.target.value;
         this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-    }
+    };
 
     compareToFirstPassword = (rule, value, callback) => {
         const form = this.props.form;
@@ -56,7 +60,7 @@ class SignupForm extends React.Component {
         } else {
             callback();
         }
-    }
+    };
 
     validateToNextPassword = (rule, value, callback) => {
         const form = this.props.form;
@@ -64,7 +68,7 @@ class SignupForm extends React.Component {
             form.validateFields(['confirm'], { force: true });
         }
         callback();
-    }
+    };
 
     handleWebsiteChange = (value) => {
         let autoCompleteResult;
@@ -74,7 +78,7 @@ class SignupForm extends React.Component {
             autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
         }
         this.setState({ autoCompleteResult });
-    }
+    };
 
     render() {
         const { getFieldDecorator } = this.props.form;
@@ -117,6 +121,10 @@ class SignupForm extends React.Component {
 
         return (
             <Form style={{paddingRight:'60px'}} onSubmit={this.handleSubmit}>
+                <div className='logReg'>
+                    <span  className='registerTab' onClick={ ()=> this.props.showLogin() } >Already registered?</span>
+                    <span  className='alreadyReg'>Register</span>
+                </div>
                 <FormItem
                     {...formItemLayout}
                     label="E-mail"
@@ -163,14 +171,31 @@ class SignupForm extends React.Component {
                     {...formItemLayout}
                     label={(
                         <span>
-              Nickname&nbsp;
+              First name&nbsp;
                             <Tooltip title="What do you want others to call you?">
                 <Icon type="question-circle-o" />
               </Tooltip>
             </span>
                     )}
                 >
-                    {getFieldDecorator('nickname', {
+                    {getFieldDecorator('firstName', {
+                        rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
+                    })(
+                        <Input />
+                    )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label={(
+                        <span>
+              Last name&nbsp;
+                            <Tooltip title="What do you want others to call you?">
+                <Icon type="question-circle-o" />
+              </Tooltip>
+            </span>
+                    )}
+                >
+                    {getFieldDecorator('lastName', {
                         rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
                     })(
                         <Input />
@@ -202,34 +227,10 @@ class SignupForm extends React.Component {
                         </AutoComplete>
                     )}
                 </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="Captcha"
-                    extra="We must make sure that your are a human."
-                >
-                    <Row gutter={8}>
-                        <Col span={12}>
-                            {getFieldDecorator('captcha', {
-                                rules: [{ required: true, message: 'Please input the captcha you got!' }],
-                            })(
-                                <Input />
-                            )}
-                        </Col>
-                        <Col span={12}>
-                            <Button>Get captcha</Button>
-                        </Col>
-                    </Row>
-                </FormItem>
-                <FormItem {...tailFormItemLayout}>
-                    {getFieldDecorator('agreement', {
-                        valuePropName: 'checked',
-                    })(
-                        <Checkbox>I have read the <a href="">agreement</a></Checkbox>
-                    )}
-                </FormItem>
                 <FormItem {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">Register</Button>
                 </FormItem>
+                <p className='duplicate'>{this.props.error}</p>
             </Form>
         );
     }
@@ -237,4 +238,14 @@ class SignupForm extends React.Component {
 
 const WrappedRegistrationForm = Form.create()(SignupForm);
 
-export default WrappedRegistrationForm
+const mapStateToProps = (state) =>({
+   error: authSelectors.getError(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+    handleRegister(data){
+        dispatch(authActions.createAccount(data));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedRegistrationForm);

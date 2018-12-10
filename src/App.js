@@ -6,6 +6,7 @@ import AboutScreen from './containers/About';
 import PricesScreen from './containers/Prices';
 import UserArea from './containers/UserArea';
 import Documents from './containers/Documents';
+import AuthFlow from './containers/AuthFlow';
 import GuestRoute from './containers/Routes/GuestRoute.js';
 import UserRoute from './containers/Routes/UserRoute.js';
 import { Route } from "react-router-dom";
@@ -19,6 +20,7 @@ class App extends Component {
       <div className="App">
           <Route exact path='/' component={ HomeScreen } />
           <Route exact path='/document' component={ Documents } />
+          <Route exact path='/auth-flow' component={ AuthFlow } />
           <GuestRoute
               location={ location }
               path="/about"

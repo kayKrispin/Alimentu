@@ -3,16 +3,22 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 const Input = ({
-    value,
-    onChange,
-    placeholder,
-    type,
-    className,
+                   type,
+                   value,
+                   size,
+                   onChange,
+                   onKeyDown,
+                   readOnly,
+                   placeholder,
+                   className,
                }) => (
+
     <input
         type={type}
-        value={value}
-        onChange={onChange}
+        defaultValue={value}
+        size={size}
+        onChange={e => onChange(e.target.value)}
+        onKeyDown={onKeyDown}
         placeholder={placeholder}
         className={className}
     />
@@ -27,7 +33,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  type: 'text'
+  type: 'text',
 };
 
 export default Input;

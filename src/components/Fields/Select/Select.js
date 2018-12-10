@@ -11,13 +11,13 @@ const Select = ({
                     type,onInputChange,
 
 
-                }) => (s
+                }) => (
     <ReactSelect
         onInputChange={onInputChange}
         placeholder={placeholder}
         options={options}
         onChange={onChange}
-        className={className}
+        className='selectContainer'
         searchable={searchable}
     />
 );

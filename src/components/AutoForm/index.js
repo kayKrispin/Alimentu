@@ -16,7 +16,7 @@ class AutoFormContainer extends React.PureComponent {
    }
 
    componentDidUpdate(nextprops){
-       if(nextprops.id != this.props.id){
+       if(nextprops.id !== this.props.id){
            this.setState({
                 DynamicForm: Form(nextprops.id)
            });
@@ -35,13 +35,23 @@ class AutoFormContainer extends React.PureComponent {
         return {
             ...this.props,
             ...this.state,
+            formFields: this.generateFields(),
         }
     };
 
     render() {
         const props = this.generateProps();
+        console.log('auto',props)
         return <AutoForm {...props} />
     }
 }
+
+
+AutoFormContainer.propTypes = {
+    schema : PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string,
+        field: PropTypes.string,
+    })).isRequired,
+};
 
 export default AutoFormContainer;

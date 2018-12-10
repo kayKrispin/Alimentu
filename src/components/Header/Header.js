@@ -13,6 +13,9 @@ const Header = ( {
     visible,
     visibleRegister,
     handleLogin,
+    user,
+    handleLogout,
+    hideLogin,
 } ) => (
     <header style={{position:'fixed'}} className='headerContainer'>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,25 +47,39 @@ const Header = ( {
                     <li className="nav-item headerLi ">
                         <Link className="nav-link moreItems" to="/prices">Ціни</Link>
                     </li>
-                    <li   onClick={() => { fakeLogin(!fakeLoggedIn), !fakeLoggedIn ? showLogin() : null }} className="nav-item   headerLi">
-                        <a className="nav-link navLinkFinale moreItems exitItem" >
-                            { fakeLoggedIn ? 'Вийти' : 'Логін/Регістрація' }</a>
-                    </li>
+                    {
+                      user && user.firstName
+                            ? (<li className="nav-item dropdown headerLi">
+                                <a className="nav-link dropdown-toggle navLinkFinale moreItems exitItem"  id="navbarDropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img style={{width:'20px',height:'20px',borderRadius:'50%',marginTop:'0'}}
+                                         src={user.image} alt=""/> Привіт { user.firstName}
+                                </a>
+                                <div  className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a className="dropdown-item " href="#">Профіль</a>
+                                    <a onClick={handleLogout} className="dropdown-item " >Вийти</a>
+                                </div>
+                            </li>)
+                            : (<span> <li   onClick={showLogin}  className="nav-item   headerLi ">
+                            <a className="nav-link navLinkFinale moreItems exitItem" >
+                                Логін/Регістрація </a>
+                           </li></span>)
+                    }
+
+
                     <Modal
-                        title="Login Form"
                         visible={visible}
-                        onOk={showLogin}
-                        onCancel={showLogin}
+                        onOk={hideLogin}
+                        onCancel={hideLogin}
                     >
                     <LoginForm showRegister ={showRegister}/>
                     </Modal>
                     <Modal
-                        title="Register Form"
                         visible={visibleRegister}
                         onOk={showRegister}
                         onCancel={showRegister}
                     >
-                        <SignupForm/>
+                        <SignupForm showLogin={showLogin}/>
                     </Modal>
                 </ul>
             </div>

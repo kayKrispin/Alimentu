@@ -12,7 +12,23 @@ class HeaderContainer extends React.Component {
 
     showLogin = () => {
         this.setState({
-            visible:!this.state.visible
+            visible:true,
+            visibleRegister:false
+        });
+    };
+
+    componentWillReceiveProps(nextProps){
+        console.log(this.props.user,nextProps.user)
+        this.props.user !== nextProps.user && this.setState({
+            visible:false,
+            visibleRegister:false,
+        })
+    }
+
+    hideLogin = () => {
+        this.setState({
+            visible:false,
+            visibleRegister:false
         });
     };
 
@@ -39,15 +55,11 @@ class HeaderContainer extends React.Component {
             ...this.props,
             ...this.state,
             onFakeAuthClick: this.onFakeAuthClick,
-            showLogin: this.showLogin,
             showRegister:this.showRegister,
+            showLogin:this.showLogin,
+            hideLogin:this.hideLogin,
         }
     };
-
-    handleLogin = (login)=>{
-        this.props.fakeLogin(login);
-        this.showLogin();
-    }
 
     render() {
         const props = this.generateProps();
@@ -56,11 +68,14 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    fakeLoggedIn: authSelectors.getAuthenticatedFakeUser(state)
+    user:authSelectors.getAuthenticatedUser(state)
 });
 
-const mapDispatchToprops = {
-    fakeLogin: authActions.fakeLogin
-};
+const mapDispatchToprops =  dispatch => ({
+    handleLogout(){
+        localStorage.clear();
+        dispatch(authActions.logout());
+    }
+});
 
 export default connect( mapStateToProps, mapDispatchToprops )( HeaderContainer );
