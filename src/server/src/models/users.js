@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema  = mongoose.Schema;
 const bcrypt = require('bcrypt');
 const jwt  =  require("jsonwebtoken");
+const config =  require('../config.js')
 
 const UsersSchema = new Schema({
 
@@ -17,7 +18,7 @@ const UsersSchema = new Schema({
             type:String,
         },
         image: {
-            type:String,
+            type:String
         },
         agreement: {
             type:Boolean
@@ -51,7 +52,7 @@ User.generateJWT =  (email) => {
         {
             email: email,
         },
-        'fuck_you_kaec'
+        config.jwt_secret,
     );
 };
 

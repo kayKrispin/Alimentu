@@ -8,13 +8,7 @@ import { store } from './store/createStore';
 import { Route } from "react-router-dom";
 import storageLoginHelper from './utils/localStorageLoginHelper'
 
-
 storageLoginHelper();
-
-if (localStorage.token) {
-    //setAuthorizationHeader(localStorage.token);
-}
-
 
 ReactDOM.render(
     <Router>

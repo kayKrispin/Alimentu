@@ -1,28 +1,15 @@
-export default () => {
+import  { fetchWrapper } from '../../../../utils/setAuthorizationHeader';
 
+export default () => {
    const loginRegisterSocial = (data) =>{
-       return fetch('/api/auth/socialLogin',{
-           method:'post',
-           headers: {'Content-Type': 'application/json'},
-           body: JSON.stringify(data),
-       })
+       return fetchWrapper('/api/auth/socialLogin',data)
    };
     const createAccount = (signupData) => {
-        return fetch('/api/auth/register', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(signupData),
-        });
+        return fetchWrapper('/api/auth/register',signupData);
     };
 
     const login = (data) =>{
-        return fetch('/api/auth/login',{
-            method:'post',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data),
-        })
+        return fetchWrapper('/api/auth/login',data);
     };
 
    return {

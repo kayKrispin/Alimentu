@@ -1,9 +1,11 @@
-const fetch =require("axios");
-
-module.exports = (token = null) => {
-    if (token) {
-        fetch.default.head.defaults.headers.common.authorization = `Bearer ${token}`;
-    } else {
-        delete fetch.defaults.headers.common.authorization;
+export const fetchWrapper = (url,data) =>{
+    let headers = {"Content-Type": "application/json"};
+    if (localStorage.token) {
+        headers["Authorization"] = `Bearer ${localStorage.token}`;
     }
+    return fetch(url, {
+        method: 'post',
+        headers:headers,
+        body: JSON.stringify(data),
+    });
 };

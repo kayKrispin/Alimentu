@@ -53,7 +53,7 @@ const Header = ( {
                                 <a className="nav-link dropdown-toggle navLinkFinale moreItems exitItem"  id="navbarDropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img style={{width:'20px',height:'20px',borderRadius:'50%',marginTop:'0'}}
-                                         src={user.image} alt=""/> Привіт { user.firstName}
+                                         src={user.image||'https://www.plc.if.ua/wp-content/uploads/2016/08/pi.jpg'} alt=""/> Привіт { user.firstName}
                                 </a>
                                 <div  className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a className="dropdown-item " href="#">Профіль</a>
@@ -65,8 +65,6 @@ const Header = ( {
                                 Логін/Регістрація </a>
                            </li></span>)
                     }
-
-
                     <Modal
                         visible={visible}
                         onOk={hideLogin}

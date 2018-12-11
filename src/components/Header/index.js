@@ -73,7 +73,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToprops =  dispatch => ({
     handleLogout(){
+        let token = localStorage.getItem('token');
         localStorage.clear();
+        localStorage.setItem('token',token);
         dispatch(authActions.logout());
     }
 });

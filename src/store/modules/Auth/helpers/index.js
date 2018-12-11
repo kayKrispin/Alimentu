@@ -42,7 +42,7 @@ export default ( () => {
             const { user: { firstName, email, image }, token } = user;
             localStorage.name = firstName;
             localStorage.email = email;
-            localStorage.image = image;
+            localStorage.image = image || 'https://www.plc.if.ua/wp-content/uploads/2016/08/pi.jpg';
             localStorage.token = token;
         }
     };
