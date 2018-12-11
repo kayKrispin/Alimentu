@@ -1,4 +1,5 @@
 import Documents from './Documents';
+<<<<<<< HEAD
 import React from 'react';
 import alimentuDocs from './documents-config';
 import { connect } from 'react-redux';
@@ -45,3 +46,7 @@ class DocumentsContainer extends React.Component {
 }
 
 export default DocumentsContainer;
+=======
+
+export default Documents;
+>>>>>>> 9b70da639cedfe34b3dfd6accfc4e71d20f4e4f6

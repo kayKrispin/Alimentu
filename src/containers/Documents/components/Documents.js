@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from  '../../../components/Header';
+<<<<<<< HEAD
 import Footer from  '../../../components/Footer';
 import { Select } from 'antd';
 import documentsList from './documentsList';
@@ -137,4 +138,14 @@ const Documents = ({
 
 
 
+=======
+
+const Documents = ( { } ) => (
+    <div>
+		<Header/>
+		<h1>History  documetns</h1>
+	</div>
+)
+
+>>>>>>> 9b70da639cedfe34b3dfd6accfc4e71d20f4e4f6
 export default Documents;

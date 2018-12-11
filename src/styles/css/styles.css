@@ -598,6 +598,7 @@ footer:after {
   opacity: .6;
   transition: .7s;
   transform: translateX(300px) skewX(-15deg); }
+<<<<<<< HEAD
 
 .laws {
   text-align: right !important; }
@@ -687,3 +688,5 @@ select {
   text-align: center;
   font-weight: 600;
   color: red; }
+=======
+>>>>>>> 9b70da639cedfe34b3dfd6accfc4e71d20f4e4f6
