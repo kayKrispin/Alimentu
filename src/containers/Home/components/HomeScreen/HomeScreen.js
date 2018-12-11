@@ -4,7 +4,6 @@ import Footer from '../../../../components/Footer';
 import { Link } from 'react-router-dom';
 import Carousel from '../../../../components/Carousel'
 import { BackTop } from 'antd';
-<<<<<<< HEAD
 import HomeMembers from '../HomeMembers';
 import HomeHero from '../HomeHero';
 import HomeAboutUs from '../HomeAbousUs';
@@ -15,11 +14,6 @@ const HomeScreen = ( { } ) => (
         <Header />
           <HomeHero />
           <HomeAboutUs />
-=======
-
-const HomeScreen = ( { } ) => (
-    <div className='dildo'>
-        <Header/>
             <div className='container'>
                 <div className='row' >
                     <div className='col-md-12'>
@@ -31,7 +25,7 @@ const HomeScreen = ( { } ) => (
                 <h2 className='imgScndBtm'>Або ознайомся з більш глибшими послугами які надає наша фірма супроводжуючи ваші створені документи!! </h2>
                     </div>
             </div>
-<div style={{display:'block'}} className='row'>
+        <div style={{display:'block'}} className='row'>
             <div style={{color:'white'}} className='midlContetnImg' >
                 <div className='container'>
                     <div className='row'>
@@ -87,7 +81,6 @@ const HomeScreen = ( { } ) => (
                 </div>
             </div>
         </div>
->>>>>>> 9b70da639cedfe34b3dfd6accfc4e71d20f4e4f6
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
@@ -107,6 +100,5 @@ const HomeScreen = ( { } ) => (
         <Footer/>
     </div>
 );
-
 
 export default HomeScreen;

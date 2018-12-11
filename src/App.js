@@ -6,10 +6,7 @@ import AboutScreen from './containers/About';
 import PricesScreen from './containers/Prices';
 import UserArea from './containers/UserArea';
 import Documents from './containers/Documents';
-<<<<<<< HEAD
 import AuthFlow from './containers/AuthFlow';
-=======
->>>>>>> 9b70da639cedfe34b3dfd6accfc4e71d20f4e4f6
 import GuestRoute from './containers/Routes/GuestRoute.js';
 import UserRoute from './containers/Routes/UserRoute.js';
 import { Route } from "react-router-dom";
@@ -23,10 +20,7 @@ class App extends Component {
       <div className="App">
           <Route exact path='/' component={ HomeScreen } />
           <Route exact path='/document' component={ Documents } />
-<<<<<<< HEAD
           <Route exact path='/auth-flow' component={ AuthFlow } />
-=======
->>>>>>> 9b70da639cedfe34b3dfd6accfc4e71d20f4e4f6
           <GuestRoute
               location={ location }
               path="/about"

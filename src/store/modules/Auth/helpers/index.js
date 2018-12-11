@@ -9,6 +9,7 @@ export default ( () => {
        socialService(network).login({ scope }).then(res=>{ return res.authResponse.access_token}).then(accessToken => {
         return ouathVerification(network).verifyUser({accessToken}).then(data => {return authService().loginRegisterSocial(data)
         }).then(res => res.json()).then(user => {
+            console.log('hello',user)
           populateLocalStorage(user);
             dispatch(socialLogin(user))})
     });
@@ -44,6 +45,9 @@ export default ( () => {
             localStorage.email = email;
             localStorage.image = image || 'https://www.plc.if.ua/wp-content/uploads/2016/08/pi.jpg';
             localStorage.token = token;
+        }else{
+            localStorage.name = user.firstName;
+            localStorage.image = user.image
         }
     };
 

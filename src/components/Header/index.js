@@ -65,15 +65,12 @@ class HeaderContainer extends React.Component {
             ...this.props,
             ...this.state,
             onFakeAuthClick: this.onFakeAuthClick,
-<<<<<<< HEAD
             showRegister:this.showRegister,
             showLogin:this.showLogin,
             hideLogin:this.hideLogin,
-=======
             showLogin: this.showLogin,
             showRegister: this.showRegister,
             handleLogin: this.handleLogin
->>>>>>> 9b70da639cedfe34b3dfd6accfc4e71d20f4e4f6
         }
     };
 
