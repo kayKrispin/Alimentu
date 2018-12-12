@@ -5,13 +5,13 @@ const Form = ({
     onSubmit,
     children,
     onKeyDown,
-                  handleSub,
     handleSubmit,
+                  submitted
 }) => (
     <form  onKeyDown={onKeyDown} onSubmit={handleSubmit} >
         <div style={{display:'flex',flexWrap:'wrap',padding:"0 40px",textAlign:'center'}}>
          {children}
-            <button type='submit' className='createDoc'>Оформити документ</button>
+            <button disabled={submitted} type='submit' className='createDoc'>Оформити документ</button>
         </div>
     </form>
 );

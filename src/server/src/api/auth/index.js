@@ -1,10 +1,10 @@
 const express = require('express');
 const User = require('../../models/users');
 const authenticated = require('./middleware')
-
 const router = express.Router();
+const cors = require('cors');
 
-router.use(authenticated)
+//router.use(authenticated)
 
 router.post('/auth/login', async (req,res,next) => {
     const { email,password } = req.body;

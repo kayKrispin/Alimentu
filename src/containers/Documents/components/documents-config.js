@@ -37,8 +37,8 @@ export default [
                     field: 'Select',
                     marginTop: '50px',
                     options: [
-                        {value: 'ppcm', label: 'Задовійльний'},
-                        {value: 'pcm', label: 'Незадовільний'},
+                        {value: 'Задовільний', label: 'Задовійльний'},
+                        {value: 'Незадовільний', label: 'Незадовільний'},
                     ],
                     defaultValue: 'ppcm',
                     searchable: false,
@@ -49,8 +49,8 @@ export default [
                     field: 'Select',
                     lox: 'lox',
                     options: [
-                        {value: 'ppcm', label: 'Задовільний'},
-                        {value: 'pcm', label: 'Незадовільний'},
+                        {value: 'Задовільний', label: 'Задовільний'},
+                        {value: 'Незадовільний', label: 'Незадовільний'},
 
                     ],
                     defaultValue: 'ppcm',
@@ -58,24 +58,24 @@ export default [
                 },
 
                 {
-                    id: 'a',
+                    id: 'moneyAmount',
                     placeholder: 'Розмір коштів в гривнях',
                     title: 'Присудити кошти на утримання дитини',
                     field: 'Input'
                 },
                 {
-                    id: 'b',
+                    id: 'accusedFullName',
                     placeholder: 'П.І.Б Відповідача',
                     title: 'Та стягувати їх з відповідача щомісячно ',
                     field: 'Input'
                 },
                 {
-                    id: 'c',
+                    id: 'partOfSalary',
                     placeholder: 'Розмір частки/доходу',
                     title: 'В розмірі від частки заробітку/доходу',
                     field: 'Input'
                 },
-                {id: 'd', placeholder: 'РР/ЧЧ/ММ', title: 'РР/ЧЧ/ММ оформлення позову', field: 'Input'},
+                {id: 'sueDateRegister', placeholder: 'РР/ЧЧ/ММ', title: 'РР/ЧЧ/ММ оформлення позову', field: 'Input'},
                 {id: 'f', placeholder: 'П.І.Б позивача', title: 'Прізвище імя по-батькові', field: 'Input'},
 
 

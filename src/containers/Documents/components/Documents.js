@@ -5,7 +5,11 @@ import { Select } from 'antd';
 import documentsList from './documentsList';
 import { Form, Row, Col, Input, Button, Icon } from 'antd';
 import AutoForm from '../../../components/AutoForm';
-import {Field, reduxForm} from 'redux-form';
+import {Field, reduxForm} from 'redux-form'
+import { Spin } from 'antd';
+import { Modal } from 'antd';
+
+
 
 
 
@@ -94,11 +98,16 @@ const Documents = ({
                        handleChange,
                        statementOfClaime,
                        handleSubmit,
-                       formSchema
+                       formSchema,
+                       status,
+                       submitted,
+                       handleModal,
+                       visible,
+                       errMessage
                     }) => (
     <div>
 		<Header/>
-        <div style={{paddingTop:'85px'}} className="container">
+        <div style={{paddingTop:'85px',textAlign:'center' }} className="container">
             <div className="row">
 				<h1>Тип документа</h1>
                 <Select
@@ -109,25 +118,35 @@ const Documents = ({
                 >{children}
                 </Select>
 			</div>
-			<div className="row pozovF">
+			<div style={{textAlign:'center' }} className="row pozovF">
                 {statementOfClaime !== '' ?( <div className='pozov' action="">
                     <h3 className='pozovHead'>  <strong>1.</strong>	Шапка позовної за'яви:</h3>
                     <div className="row">
                         <AutoForm
                             id="profile"
                             schema={formSchema}
+                            submitted={submitted}
                             onSubmit={handleSubmit}
                             submitText="Update"
                         />
+
                     </div>
                     <h3 style={{position:'relative',bottom:"520px"}} className='pozovHead'>  <strong>2.</strong>	Основна інформація:</h3>
 
                     <h3 style={{marginTop:'10px',position:'relative', bottom:"270px"}} className='pozovHead'>  <strong>3.</strong>	Прошу :</h3>
+                    <span style={{fontWeight:'600',color:'red'}}>{!submitted && errMessage}</span>
 
 
-                </div>) :(<h1>Please select some kind of Statemet of Claime</h1>) }
-
+                </div>) :(<h3>Оберіть тип позовоної заяви</h3>) }
+                { submitted ? status ? null : <Spin size='large' /> : null }
             </div>
+            <Modal
+                visible={visible}
+                onCancel={handleModal}
+                onOk={handleModal}
+            >
+                <p>Ми успішно надіслали створений вами документ на вашу пошту!!!</p>
+            </Modal>
         </div>
         <Footer/>
     </div>

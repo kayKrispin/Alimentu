@@ -7,10 +7,11 @@ const AutoForm = ({
     title,
     onSubmit,
     submitText,
+                      submitted,
 }) => (
 
     <DynamicForm
-
+        submitted={submitted}
         title={title}
         onSubmit={onSubmit}
         submitText={submitText}
@@ -23,6 +24,7 @@ const AutoForm = ({
 
 AutoForm.propTypes = {
   onSubmit:PropTypes.func,
+    submitted: PropTypes.bool,
   DynamicForm: PropTypes.func,
   submitText: PropTypes.string,
   title: PropTypes.string,
