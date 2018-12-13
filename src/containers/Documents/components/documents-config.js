@@ -14,7 +14,7 @@ export default [
                 {id: 'accusedAdress', title: 'Адресса', field: 'Input'},
                 {id: 'accusedPhone', title: 'Телефон', field: 'Input'},
 
-                {id: 'merriageCreation', placeholder: 'РР/ЧЧ/ММ', title: 'Дата укладення шлюбу', field: 'Input'},
+                {id: 'merriageCreation', placeholder: '4242 4242 4242 4242', title: 'Дата укладення шлюбу', field: 'Input'},
                 {id: 'l', placeholder: 'П.І.Б', title: 'Між мною ', field: 'Input'},
                 {id: 'h', placeholder: 'П.І.Б', title: 'Та Відповідачем', field: 'Input'},
                 {id: 'merriageRegister', placeholder: 'РР/ЧЧ/ММ', title: 'Який був зареєстрований', field: 'Input'},

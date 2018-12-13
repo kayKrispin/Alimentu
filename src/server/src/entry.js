@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const authRoutes  =  require('./api/auth');
 const contactRoutes  =  require('./api/contact/controller.js');
+const paymentRoutes  =  require('./api/payment');
 
 
 
@@ -18,9 +19,11 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 
+app.use('/api', authRoutes);
+
 app.use('/email', contactRoutes);
 
-app.use('/api', authRoutes);
+app.use('/payment', paymentRoutes);
 
 
 

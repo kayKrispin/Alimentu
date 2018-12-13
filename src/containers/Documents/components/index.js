@@ -4,6 +4,8 @@ import alimentuDocs from './documents-config';
 import { connect } from 'react-redux';
 import sgMail from '@sendgrid/mail';
 import { actions as contactActions, selectors as contactSelectors } from '../../../store/modules/Contact';
+import { selectors as paymentSelectors } from '../../../store/modules/Payment';
+
 
 class DocumentsContainer extends React.Component {
 
@@ -13,6 +15,7 @@ class DocumentsContainer extends React.Component {
       submitted:false,
       visible:false,
       errMessage:'',
+      visiblePayment:false,
     };
 
     componentWillReceiveProps(nextProps){
@@ -20,6 +23,11 @@ class DocumentsContainer extends React.Component {
             this.setState({
                 visible:true,
             })
+        }
+        if(nextProps.finishStep === 'finished'){
+            this.setState({
+               visiblePayment:false
+            });
         }
     }
     valiateFields = (signupData) => {
@@ -46,8 +54,12 @@ class DocumentsContainer extends React.Component {
                errMessage:errorMessages[0]
             });
         } else {
-            this.setState({submitted:true})
-            this.props.handSendEmail(values)
+            this.setState({visiblePayment:true})
+            if( this.props.finishStep) {
+                this.setState({ visiblePayment:false })
+                this.setState({ submitted:true })
+                this.props.handSendEmail(values)
+            }
         }
     };
 
@@ -68,8 +80,14 @@ class DocumentsContainer extends React.Component {
 
     handleModal = () => {
         this.setState({
-            visible:!this.state.visible
-        })
+            visible:!this.state.visible,
+        });
+    }
+
+    handlePayment = () => {
+        this.setState({
+            visiblePayment:!this.state.visiblePayment,
+        });
     }
 
 
@@ -80,17 +98,20 @@ class DocumentsContainer extends React.Component {
             handleChange: this.handleChange,
             handleSubmit: this.handleSubmit,
             handleModal:this.handleModal,
+            handlePayment:this.handlePayment,
         }
     }
 
     render() {
+        console.log('this',this.props)
         const props = this.generateProps();
         return <Documents {...props} />
     }
 }
 
 const mapStateToProps = state => ({
-    status: contactSelectors.getSendMessageStatus(state)
+    status: contactSelectors.getSendMessageStatus(state),
+    finishStep: paymentSelectors.getFinishStep(state),
 });
 
 const mapDispatchToProps = dispatch => ({

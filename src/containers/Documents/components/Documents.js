@@ -8,6 +8,7 @@ import AutoForm from '../../../components/AutoForm';
 import {Field, reduxForm} from 'redux-form'
 import { Spin } from 'antd';
 import { Modal } from 'antd';
+import PaymentForm from '../../../components/PaymentForm';
 
 
 
@@ -103,7 +104,9 @@ const Documents = ({
                        submitted,
                        handleModal,
                        visible,
-                       errMessage
+                       errMessage,
+                       visiblePayment,
+                       handlePayment,
                     }) => (
     <div>
 		<Header/>
@@ -117,7 +120,12 @@ const Documents = ({
 					onChange={handleChange}
                 >{children}
                 </Select>
-			</div>
+                <PaymentForm
+                visible={visiblePayment}
+                onCancel={handlePayment}
+                />
+
+            </div>
 			<div style={{textAlign:'center' }} className="row pozovF">
                 {statementOfClaime !== '' ?( <div className='pozov' action="">
                     <h3 className='pozovHead'>  <strong>1.</strong>	Шапка позовної за'яви:</h3>

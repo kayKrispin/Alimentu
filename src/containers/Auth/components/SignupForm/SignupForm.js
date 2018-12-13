@@ -36,6 +36,7 @@ class SignupForm extends React.Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
+        err:false,
     };
 
     handleSubmit = (e) => {
@@ -81,6 +82,7 @@ class SignupForm extends React.Component {
     };
 
     render() {
+        const { errType,error } = this.props;
         const { getFieldDecorator } = this.props.form;
         const { autoCompleteResult } = this.state;
 
@@ -230,7 +232,7 @@ class SignupForm extends React.Component {
                 <FormItem {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">Register</Button>
                 </FormItem>
-                <p className='duplicate'>{this.props.error}</p>
+                {errType === 'register' &&  <p className='duplicate'>{error}</p>}
             </Form>
         );
     }
@@ -239,7 +241,8 @@ class SignupForm extends React.Component {
 const WrappedRegistrationForm = Form.create()(SignupForm);
 
 const mapStateToProps = (state) =>({
-   error: authSelectors.getError(state)
+   error: authSelectors.getError(state),
+   errType: authSelectors.getErrorType(state),
 });
 
 const mapDispatchToProps = dispatch => ({

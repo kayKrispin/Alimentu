@@ -10,6 +10,9 @@ import AuthFlow from './containers/AuthFlow';
 import GuestRoute from './containers/Routes/GuestRoute.js';
 import UserRoute from './containers/Routes/UserRoute.js';
 import { Route } from "react-router-dom";
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import PaymentForm from './components/PaymentForm'
+
 
 
 
@@ -17,7 +20,8 @@ class App extends Component {
   render() {
       const { location } = this.props;
     return (
-      <div className="App">
+        <StripeProvider apiKey="pk_test_TgVhMUQIt30yIvcJun4aMtoB">
+        <div className="App">
           <Route exact path='/' component={ HomeScreen } />
           <Route exact path='/document' component={ Documents } />
           <Route exact path='/auth-flow' component={ AuthFlow } />
@@ -39,7 +43,14 @@ class App extends Component {
               exact
               component={ UserArea }
           />
+            <UserRoute
+                location={ location }
+                path="/payment"
+                exact
+                component={ PaymentForm }
+            />
       </div>
+        </StripeProvider>
     );
   }
 }

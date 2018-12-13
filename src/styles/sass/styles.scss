@@ -776,7 +776,6 @@ footer:after {
   opacity: .6;
   transition: .7s;
   transform: translateX(300px) skewX(-15deg);
-<<<<<<< HEAD
 }
 
 .laws {
@@ -902,4 +901,34 @@ width: 100%;
 
 .continueModal {
   text-align: center;
+}
+
+.paymentB{
+  margin-top: 10px;
+  color: white;
+  background: lightskyblue;
+  padding: 7px;
+  border-radius:3px ;
+  width: 100%;
+  border:none;
+}
+
+.wouldyou{
+  margin-bottom: 20px;
+}
+
+.paymentS{
+  margin-top: 10px;
+  color: white;
+  background: lightgreen;
+  padding: 7px;
+  border-radius:3px ;
+  width: 100%;
+  border:none;
+}
+
+.checkP {
+  font-size: 20px!important;
+  margin-left: 10px;
+  margin-bottom: 0!important;
 }

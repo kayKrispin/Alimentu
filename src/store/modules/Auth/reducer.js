@@ -15,6 +15,7 @@ const defaultState = {
     user:{},
     fakeLogin:false,
     error:'',
+    errType:'',
 };
 
 export default  (state = defaultState, action) => {
@@ -44,7 +45,8 @@ export default  (state = defaultState, action) => {
         case ERROR:
             return {
                 ...state,
-                error:action.payload
+                error:action.payload,
+                errType:action.errType,
             };
         case LOGOUT:
             return {

@@ -19,7 +19,8 @@ export default ( () => {
         authService().createAccount(signupData).then(res => res.json()).then(data => {
             if(data.error) {
                 const err = data.error;
-                dispatch(error(err))
+                const type = 'register';
+                dispatch(error(err,type))
             } else {
                 populateLocalStorage(data);
                 dispatch(accountCreation(data));
@@ -31,7 +32,8 @@ export default ( () => {
         authService().login(signInData).then(res => res.json()).then(data => {
             if(data.error) {
                 const err = data.error;
-                dispatch(error(err))
+                const type = 'login';
+                dispatch(error(err,type))
             } else {
                 populateLocalStorage(data);
                 dispatch(login(data));

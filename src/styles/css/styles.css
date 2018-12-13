@@ -687,3 +687,36 @@ select {
   text-align: center;
   font-weight: 600;
   color: red; }
+
+.error {
+  font-weight: 600;
+  color: red; }
+
+.continueModal {
+  text-align: center; }
+
+.paymentB {
+  margin-top: 10px;
+  color: white;
+  background: lightskyblue;
+  padding: 7px;
+  border-radius: 3px;
+  width: 100%;
+  border: none; }
+
+.wouldyou {
+  margin-bottom: 20px; }
+
+.paymentS {
+  margin-top: 10px;
+  color: white;
+  background: lightgreen;
+  padding: 7px;
+  border-radius: 3px;
+  width: 100%;
+  border: none; }
+
+.checkP {
+  font-size: 20px !important;
+  margin-left: 10px;
+  margin-bottom: 0 !important; }

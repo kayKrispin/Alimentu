@@ -19,7 +19,8 @@ class LoginForm extends React.Component {
     };
 
     render() {
-        const { getFieldDecorator } = this.props.form;
+        const { getFieldDecorator } = this.props.form
+        const { error,errType } = this.props;
         return (
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <div className='logReg'>
@@ -53,7 +54,7 @@ class LoginForm extends React.Component {
                     </Button>
                     <br/>
                     Or login with...
-                    <p className='duplicate'>{this.props.error}</p>
+                    {errType === 'login' &&  <p className='duplicate'>{error}</p>}
                 </FormItem>
                 <SocialSignIn/>
             </Form>
@@ -64,7 +65,8 @@ class LoginForm extends React.Component {
 const WrappedLoginForm = Form.create()(LoginForm);
 
 const mapStateToProps = state => ({
-    error:authSelectors.getError(state)
+    error:authSelectors.getError(state),
+    errType:authSelectors.getErrorType(state),
 })
 
 const mapDispatchToProps = dispatch => ({

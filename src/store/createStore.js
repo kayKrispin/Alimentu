@@ -5,7 +5,9 @@ import { combineReducers } from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { reducer as authStore } from './modules/Auth/';
 import { store as contactStore } from './modules/Contact/';
-import { reducer as formReducer } from "redux-form";
+import { reducer as formStore } from "redux-form";
+import { store as paymentStore } from './modules/Payment/';
+
 
 
 
@@ -13,7 +15,8 @@ import { reducer as formReducer } from "redux-form";
 const reducers = {
     authStore,
     contactStore,
-    form:formReducer,
+    paymentStore,
+    form:formStore,
 };
 
 

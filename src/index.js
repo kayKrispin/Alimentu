@@ -6,7 +6,8 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { store } from './store/createStore';
 import { Route } from "react-router-dom";
-import storageLoginHelper from './utils/localStorageLoginHelper'
+import storageLoginHelper from './utils/localStorageLoginHelper';
+
 
 storageLoginHelper();
 

@@ -33,9 +33,10 @@ export const logout  = () => ({
     type: LOGOUT,
 });
 
-export const error = (err) => ({
+export const error = (err,type) => ({
     type: ERROR,
     payload: err,
+    errType:type,
 });
 
 // Log in
