@@ -1,9 +1,12 @@
+require('dotenv').config({path:'C:/Users/User/Desktop/alimentu/src/server/.env'})
+
+
 module.exports = {
-    facebookAppId: '1635161566574530',
-    googleAppId:'613880626150-c69acudo8li5c1qgmf9dkokuruioq37r.apps.googleusercontent.com',
-    facebookAppSecret: '9c77471a277c70080e361628fbbe1eff',
-    oauthRedirectUrl:'http://localhost:3000/auth-flow/',
+    facebookAppId: process.env.REACT_APP_FACEBOOK_APP_ID,
+    googleAppId:process.env.REACT_APP_GOOGLE_APP_ID,
+    facebookAppSecret: process.env.REACT_APP_FACEBOOK_APP_SECRET,
+    oauthRedirectUrl:process.env.REACT_APP_OAUTH_REDICRECT_URL,
     jwt_secret: 'fuck_you_kaec',
-    sendgridApiKey:'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',
-    fromEmail: 'tarasbashuryn@gmail.com',
+    sendgridApiKey:process.env.REACT_APP_SENDGRID_API_KEY,
+    fromEmail:process.env.REACT_APP_FROM_EMAIL,
 };

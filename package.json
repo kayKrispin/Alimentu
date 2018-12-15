@@ -72,7 +72,6 @@
     "babel-watch": "2.0.2",
     "concurrently": "^4.0.1",
     "cors": "^2.8.5",
-    "dotenv": "^6.1.0",
     "nodemon": "^1.18.7"
   },
   "proxy": "http://127.0.0.1:4000"

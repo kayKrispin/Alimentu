@@ -18,6 +18,10 @@ class DocumentsContainer extends React.Component {
       visiblePayment:false,
     };
 
+    componentDidMount(){
+        console.log('enb',process.env)
+    }
+
     componentWillReceiveProps(nextProps){
         if(nextProps.status !==this.props.status){
             this.setState({
@@ -103,7 +107,6 @@ class DocumentsContainer extends React.Component {
     }
 
     render() {
-        console.log('this',this.props)
         const props = this.generateProps();
         return <Documents {...props} />
     }

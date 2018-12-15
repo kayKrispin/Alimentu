@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const authRoutes  =  require('./api/auth');
 const contactRoutes  =  require('./api/contact/controller.js');
 const paymentRoutes  =  require('./api/payment');
+require('dotenv').config({path:'C:/Users/User/Desktop/alimentu/src/server/.env'})
 
 
 
