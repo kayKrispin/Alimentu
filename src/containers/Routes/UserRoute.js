@@ -4,21 +4,21 @@ import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 import {selectors as authSelectors} from "../../store/modules/Auth";
 
-const UserRoute = ({ isFakeAuthenticated, component: Component, ...rest }) => (
+const UserRoute = ({ user, component: Component, ...rest }) => (
     <Route
         {...rest}
         render={props =>
-            isFakeAuthenticated ? <Component {...props} /> : <Redirect to="/" />}
+            user.email !== null ? <Component {...props} /> : <Redirect to="/" />}
     />
 );
 
 UserRoute.propTypes = {
     component: PropTypes.func.isRequired,
-    isFakeAuthenticated: PropTypes.bool.isRequired
+    user: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    isFakeAuthenticated: authSelectors.getAuthenticatedFakeUser(state)
+    user: authSelectors.getAuthenticatedUser(state)
 });
 
 export default connect(mapStateToProps)(UserRoute);

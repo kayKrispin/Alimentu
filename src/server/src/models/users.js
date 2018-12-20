@@ -31,7 +31,12 @@ const UsersSchema = new Schema({
         },
         phone: {
             type:String,
-        }
+        },
+        statementsOfClaim:[
+            {
+                body: String
+            }
+        ]
 
     }
 );
@@ -46,13 +51,18 @@ User.isValidPassword = (password, encodedPassword) => {
     return bcrypt.compareSync(password, encodedPassword);
 };
 
-User.generateJWT =  (email) => {
+User.generateJWT =  (_id) => {
     return jwt.sign(
         {
-            email: email,
+            _id: _id,
         },
         config.jwt_secret,
     );
+};
+
+User.generateResetPasswordLink = (email) =>{
+    console.log('this')
+    return `https://localhost:3000/reset-password/${User.generateJWT(email)}`
 };
 
 module.exports = User;

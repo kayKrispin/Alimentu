@@ -9,8 +9,6 @@ export const submitContactForms = () => ({
     payload: 'success'
 });
 
-
-
 export const submitContactForm = statmentOfClaim => {
    return contactService.submitForm(statmentOfClaim)
 };

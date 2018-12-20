@@ -2,6 +2,7 @@ import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Butto
 import React from 'react';
 import { connect  } from 'react-redux';
 import { actions as authActions, selectors as authSelectors } from '../../../../store/modules/Auth';
+import { Link } from 'react-router-dom';
 
 
 const FormItem = Form.Item;
@@ -213,22 +214,15 @@ class SignupForm extends React.Component {
                         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
                     )}
                 </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="Website"
-                >
-                    {getFieldDecorator('website', {
-                        rules: [{ required: true, message: 'Please input website!' }],
-                    })(
-                        <AutoComplete
-                            dataSource={websiteOptions}
-                            onChange={this.handleWebsiteChange}
-                            placeholder="website"
-                        >
-                            <Input />
-                        </AutoComplete>
-                    )}
-                </FormItem>
+                <div className='termsAgree'>
+                    <FormItem className='termsAgree' {...tailFormItemLayout}>
+                        {getFieldDecorator('agreement', {
+                            valuePropName: 'checked',
+                        })(
+                            <Checkbox>Я згідний з  <Link className='terms' to='terms'>умовами сервісу</Link></Checkbox>
+                        )}
+                    </FormItem>
+                </div>
                 <FormItem {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">Register</Button>
                 </FormItem>

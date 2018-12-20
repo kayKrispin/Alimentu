@@ -41,7 +41,6 @@ class AutoFormContainer extends React.PureComponent {
 
     render() {
         const props = this.generateProps();
-        console.log('auto',props)
         return <AutoForm {...props} />
     }
 }

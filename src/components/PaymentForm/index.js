@@ -29,6 +29,7 @@ class PaymentFormContainer extends React.Component{
     }
 
     handleSendEmail = data => {
+        console.log('data',data)
         this.setState({
             visible:false
         });

@@ -4,9 +4,8 @@ const mongoose = require('mongoose');
 const authRoutes  =  require('./api/auth');
 const contactRoutes  =  require('./api/contact/controller.js');
 const paymentRoutes  =  require('./api/payment');
+const documentRoutes  =  require('./api/documents');
 require('dotenv').config({path:'C:/Users/User/Desktop/alimentu/src/server/.env'})
-
-
 
 const app =  express();
 
@@ -14,13 +13,13 @@ mongoose.connect('mongodb://localhost/aliments');
 
 mongoose.Promise = global.Promise;
 
-
 app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.json());
 
-
 app.use('/api', authRoutes);
+
+app.use('/documents', documentRoutes);
 
 app.use('/email', contactRoutes);
 

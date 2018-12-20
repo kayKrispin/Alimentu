@@ -1,3 +1,3 @@
-import UserArea from './components/UserArea';
+import UserArea from './components';
 
 export default UserArea;

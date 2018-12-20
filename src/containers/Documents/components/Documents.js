@@ -9,6 +9,7 @@ import {Field, reduxForm} from 'redux-form'
 import { Spin } from 'antd';
 import { Modal } from 'antd';
 import PaymentForm from '../../../components/PaymentForm';
+import template  from '../../../server/src/api/contact/emailTemplates';
 
 
 
@@ -107,6 +108,7 @@ const Documents = ({
                        errMessage,
                        visiblePayment,
                        handlePayment,
+    user
                     }) => (
     <div>
 		<Header/>
@@ -131,11 +133,14 @@ const Documents = ({
                     <h3 className='pozovHead'>  <strong>1.</strong>	Шапка позовної за'яви:</h3>
                     <div className="row">
                         <AutoForm
-                            id="profile"
+                            id={statementOfClaime}
                             schema={formSchema}
                             submitted={submitted}
                             onSubmit={handleSubmit}
                             submitText="Update"
+                            className = 'createDocumentForm'
+                            btnClassName='createDoc'
+                            label='Оформити документ'
                         />
 
                     </div>
@@ -153,7 +158,9 @@ const Documents = ({
                 onCancel={handleModal}
                 onOk={handleModal}
             >
-                <p>Ми успішно надіслали створений вами документ на вашу пошту!!!</p>
+                <p>Ми успішно надіслали створений вами документ на вашу пошту!!!
+                    Також ви можете побачити список ваших документів в особистому кабінеті
+                </p>
             </Modal>
         </div>
         <Footer/>

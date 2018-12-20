@@ -2,7 +2,10 @@ const express = require('express');
 const User = require('../../models/users');
 const authenticated = require('./middleware')
 const router = express.Router();
-const cors = require('cors');
+const service  = require('./services');
+const config  = require('../../config');
+
+
 
 router.use(authenticated)
 
@@ -50,6 +53,26 @@ router.post('/auth/socialLogin',  async (req,res,next) => {
         res.send(newUser)
     }
 });
+
+
+router.post('/auth/reset_password_link',  async (req,res,next) => {
+    const { email } = req.body;
+
+    const user = await User.find({_id:req.body._id});
+
+
+    if( user ) {
+        return await service.sendEmail({
+            to: email,
+            from:'tara@mail.ru',
+            html:`Щоб відновити пароль перейдіть за цим посиланням </br> <a>${User.generateResetPasswordLink(req.body._id)}</a> `,
+            subject: 'Посиланя для зміни пароля',
+        }).then(() => {
+            res.json({success:'complete'});
+        }).catch(e=>console.log('error',e));
+    }
+});
+
 
 
 

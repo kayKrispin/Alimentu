@@ -5,6 +5,7 @@ import {
     CREATE_ACCOUNT,
     ERROR,
     LOGIN,
+    REQUST_RESETPASSWORD_LINK,
 } from './constans';
 
 import helperAuth from './helpers';
@@ -39,6 +40,10 @@ export const error = (err,type) => ({
     errType:type,
 });
 
+export const requestResetLink  = () => ({
+    type: REQUST_RESETPASSWORD_LINK,
+});
+
 // Log in
 export const loginUser = signInData => dispatch => {
     return helperAuth().loginHandler(signInData,dispatch,login,error);
@@ -53,4 +58,9 @@ export const createAccount = signupData => dispatch => {
 // Social sign in
 export const loginSocial = ({ network, scope }) => dispatch => {
     return helperAuth().socialLoginHandler(network, scope,dispatch, socialLogin);
+};
+
+//Request reset-password link
+export const requestResetPassLink = (email, _id) => dispatch => {
+    return helperAuth().requestResetPasswordHandler(email, _id, dispatch, requestResetLink);
 };

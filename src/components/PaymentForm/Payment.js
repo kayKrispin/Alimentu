@@ -18,6 +18,7 @@ class CheckoutForm extends React.Component  {
     };
     render() {
         const { visible, onCancel, paymentStatus,handleFinishCharge,values,handleSendEmail } =this.props;
+        console.log('VALUES',values)
         const { attempted } = this.state;
         return (
             <Modal visible={visible}
@@ -37,7 +38,7 @@ class CheckoutForm extends React.Component  {
                                         : (<Spin size='medium'/>)
                                     : (<span>Заплатити <strong>30 грн</strong></span> ) }</button>
                     {paymentStatus &&
-                    <button onClick={()=>{handleSendEmail( values.profile.values)}}
+                    <button onClick={()=>{handleSendEmail( values)}}
                             className='paymentB'>Надіслати позовну заяву на пошту</button>}
                 </div>
             </Modal>

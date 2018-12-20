@@ -8,14 +8,16 @@ import {
    CREATE_ACCOUNT,
    ERROR,
    LOGIN,
+   REQUST_RESETPASSWORD_LINK,
 } from './constans';
 
 
 const defaultState = {
-    user:{},
-    fakeLogin:false,
-    error:'',
-    errType:'',
+    user: {},
+    fakeLogin: false,
+    error: '',
+    errType: '',
+    requestResetPassword: '',
 };
 
 export default  (state = defaultState, action) => {
@@ -52,6 +54,11 @@ export default  (state = defaultState, action) => {
             return {
                 ...state,
                 user:{}
+            };
+        case REQUST_RESETPASSWORD_LINK:
+            return {
+                ...state,
+                requestResetPassword:'Success'
             };
         default:
             return state;

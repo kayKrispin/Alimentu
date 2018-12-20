@@ -9,7 +9,6 @@ export default ( () => {
        socialService(network).login({ scope }).then(res=>{ return res.authResponse.access_token}).then(accessToken => {
         return ouathVerification(network).verifyUser({accessToken}).then(data => {return authService().loginRegisterSocial(data)
         }).then(res => res.json()).then(user => {
-            console.log('hello',user)
           populateLocalStorage(user);
             dispatch(socialLogin(user))})
     });
@@ -40,16 +39,24 @@ export default ( () => {
             }
         });
 
+    const requestResetPasswordHandler = (email,_id, dispatch,requestResetLink) =>
+        authService().requestResetPasswordLink(email, _id);
+
+
     const populateLocalStorage = (user) => {
         if(user.user) {
-            const { user: { firstName, email, image }, token } = user;
+            const { user: { firstName, email, image,_id }, token } = user;
             localStorage.name = firstName;
             localStorage.email = email;
             localStorage.image = image || 'https://www.plc.if.ua/wp-content/uploads/2016/08/pi.jpg';
             localStorage.token = token;
-        }else{
+            localStorage._id = _id;
+        } else {
             localStorage.name = user.firstName;
+            localStorage.lastName = user.lastName;
+            localStorage.email = user.email;
             localStorage.image = user.image
+            localStorage._id = user._id
         }
     };
 
@@ -57,5 +64,6 @@ export default ( () => {
         socialLoginHandler,
         createAccountHandler,
         loginHandler,
+        requestResetPasswordHandler
     }
 });

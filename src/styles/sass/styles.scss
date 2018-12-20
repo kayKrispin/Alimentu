@@ -19,11 +19,14 @@ body{
 }
 
 .headerContainer {
+  position: sticky;
+  top: 0;
 }
 
 header {
   color: blue;
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100%;
   z-index: 900;
 }
@@ -931,4 +934,159 @@ width: 100%;
   font-size: 20px!important;
   margin-left: 10px;
   margin-bottom: 0!important;
+}
+
+
+.profileContainer{
+  margin-top: 20px;
+}
+
+.innerContainer{
+  display: flex;
+  flex-direction: column;
+  background: #f0f4f9;;
+  padding: 60px;
+}
+
+.inputProfile{
+  padding: 20px;
+  margin-bottom: 10px;
+  border: none;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.updateBtn {
+  margin-top: 10px;
+  background-color: $color-mainblue;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 62px;
+  padding: 0 35px;
+  position: relative;
+  outline: 0;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  font-family: GT-Haptik-Bold,sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color .5s ease;
+  width: 15%;
+}
+
+.profileP{
+  display: block;
+  padding: 0 0;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 24px;
+  font-weight: 600;
+  color: #788895;
+  cursor: pointer;
+}
+
+.profileTitle{
+  margin: 0 0 24px;
+  padding: 0;
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+.activeP{
+  color:$color-mainblue
+}
+
+.profileP:hover{
+  color: #345a80;
+}
+
+@media only screen and (max-width: 786px) {
+  .updateBtn{
+    width: 100%;
+  }
+}
+
+.terms{
+  color:$color-mainblue;
+}
+
+.termsAgree{
+  width: 100%;
+
+  .ant-checkbox-wrapper {
+    width: 100%;
+  }
+}
+
+.termsName{
+  display: block;
+  margin: 25px 0;
+  font: bold 16px/22px MP;
+  color: $color-mainblue;
+  text-transform: uppercase;
+}
+
+.termsH {
+  color: $color-mainblue;
+}
+
+.documentsList{
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.documentsUl{
+  display: block;
+  padding: 0;
+  letter-spacing: 0;
+}
+
+.createDocumentForm{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.resetPassInput{
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  width: 75%;
+  margin: 0;
+}
+
+.resetPasswordBtn{
+  background-color: $color-mainblue;
+  color: #fff;
+  text-align: center;
+  line-height: 115%;
+  border-radius: 10px!important;
+  height: 62px!important;
+  outline: none;
+  overflow: hidden;
+  border:1px solid #345a80;
+  padding: 20px;
+
+}
+.resetPasswordBtn:focus{
+  outline: none!important;
+}
+
+
+
+.resetTitle{
+  margin-bottom: 20px!important;
 }

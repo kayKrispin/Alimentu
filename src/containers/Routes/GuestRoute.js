@@ -5,11 +5,11 @@ import { Route, Redirect } from "react-router-dom";
 import { selectors as authSelectors } from '../../store/modules/Auth';
 
 
-const GuestRoute = ({ isFakeAuthenticated, component: Component, ...rest }) => (
+const GuestRoute = ({ user, component: Component, ...rest }) => (
     <Route
         {...rest}
         render={ props =>
-            !isFakeAuthenticated ? (
+           user.email === null || Object.keys(user).length === 0 ? (
                 <Component {...props} />
             ) : (
                  <Redirect to="/" />
@@ -19,11 +19,11 @@ const GuestRoute = ({ isFakeAuthenticated, component: Component, ...rest }) => (
 
 GuestRoute.propTypes = {
     component: PropTypes.func.isRequired,
-    isFakeAuthenticated: PropTypes.bool.isRequired
+    user: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-   isFakeAuthenticated: authSelectors.getAuthenticatedFakeUser(state)
+   user: authSelectors.getAuthenticatedUser(state)
 });
 
 export default connect(mapStateToProps)(GuestRoute);

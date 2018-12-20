@@ -8,9 +8,15 @@ const AutoForm = ({
     onSubmit,
     submitText,
                       submitted,
+                      className,
+                      btnClassName,
+    label,
 }) => (
 
     <DynamicForm
+        label={label}
+        className={className}
+        btnClassName={btnClassName}
         submitted={submitted}
         title={title}
         onSubmit={onSubmit}

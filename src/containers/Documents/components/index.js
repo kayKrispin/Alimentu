@@ -4,7 +4,11 @@ import alimentuDocs from './documents-config';
 import { connect } from 'react-redux';
 import sgMail from '@sendgrid/mail';
 import { actions as contactActions, selectors as contactSelectors } from '../../../store/modules/Contact';
+import { actions as documentActions, selectors as documentSelectors } from '../../../store/modules/Documents';
 import { selectors as paymentSelectors } from '../../../store/modules/Payment';
+import { selectors as authSelectors } from '../../../store/modules/Auth';
+
+
 
 
 class DocumentsContainer extends React.Component {
@@ -52,6 +56,12 @@ class DocumentsContainer extends React.Component {
     }
 
     handleSubmit = (values) => {
+        const { user : { _id } } = this.props;
+        const { statementOfClaime } = this.state;
+
+        console.log('statete',statementOfClaime)
+        this.props.handleSaveDocument({userId: _id ,values : values, statementOfClaime:statementOfClaime})
+
         let errorMessages = this.valiateFields(values);
         if(errorMessages.length){
             this.setState({
@@ -60,9 +70,8 @@ class DocumentsContainer extends React.Component {
         } else {
             this.setState({visiblePayment:true})
             if( this.props.finishStep) {
-                this.setState({ visiblePayment:false })
-                this.setState({ submitted:true })
-                this.props.handSendEmail(values)
+                this.setState({ visiblePayment:false, submitted:true });
+                this.props.handSendEmail(values);
             }
         }
     };
@@ -94,7 +103,6 @@ class DocumentsContainer extends React.Component {
         });
     }
 
-
     generateProps() {
         return {
             ...this.props,
@@ -115,12 +123,16 @@ class DocumentsContainer extends React.Component {
 const mapStateToProps = state => ({
     status: contactSelectors.getSendMessageStatus(state),
     finishStep: paymentSelectors.getFinishStep(state),
+    user: authSelectors.getAuthenticatedUser(state),
 });
 
 const mapDispatchToProps = dispatch => ({
    handSendEmail(sueData){
        contactActions.submitContactForm(sueData).then(()=>
         dispatch(contactActions.submitContactForms()))
+   },
+   handleSaveDocument(document) {
+        dispatch(documentActions.createNewDocument(document));
    }
 });
 

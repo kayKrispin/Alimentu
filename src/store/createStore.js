@@ -7,6 +7,7 @@ import { reducer as authStore } from './modules/Auth/';
 import { store as contactStore } from './modules/Contact/';
 import { reducer as formStore } from "redux-form";
 import { store as paymentStore } from './modules/Payment/';
+import { store as documentsStore } from './modules/Documents/';
 
 
 
@@ -16,6 +17,7 @@ const reducers = {
     authStore,
     contactStore,
     paymentStore,
+    documentsStore,
     form:formStore,
 };
 

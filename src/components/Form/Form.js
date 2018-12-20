@@ -6,16 +6,18 @@ const Form = ({
     children,
     onKeyDown,
     handleSubmit,
-                  submitted
+                  submitted,
+                  className,
+    btnClassName,
+    label,
 }) => (
     <form  onKeyDown={onKeyDown} onSubmit={handleSubmit} >
-        <div style={{display:'flex',flexWrap:'wrap',padding:"0 40px",textAlign:'center'}}>
+        <div className={className}>
          {children}
-            <button disabled={submitted}  type='submit' className='createDoc'>Оформити документ</button>
+            <button disabled={submitted}  type='submit' className={btnClassName}>{label}</button>
         </div>
     </form>
 );
-
 
 Form.propTypes = {
     handleSubmit: PropTypes.func

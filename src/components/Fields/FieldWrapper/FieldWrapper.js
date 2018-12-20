@@ -28,7 +28,8 @@ const FieldWrapper = WrappedField => props => (
 export default (WrappedField) => {
     const MeField = FieldWrapper(WrappedField);
     return props => (
-        <FormField marginTop={props.marginTop} lox={props.lox} title={props.title} type={props.type} tip={props.tip} wrapperClassName={props.wrapperClassName}>
+        <FormField marginTop={props.marginTop} lox={props.lox}
+                   title={props.title} type={props.type} tip={props.tip} wrapperClassName={props.wrapperClassName}>
             <Field {...props} component={MeField} />
         </FormField>
     );

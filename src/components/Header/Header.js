@@ -17,7 +17,7 @@ const Header = ( {
     handleLogout,
     hideLogin,
 } ) => (
-    <header style={{position:'fixed'}} className='headerContainer'>
+    <header style={{position:'sticky',top:'0'}} className='headerContainer'>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +56,7 @@ const Header = ( {
                                          src={user.image||'https://www.plc.if.ua/wp-content/uploads/2016/08/pi.jpg'} alt=""/> Привіт { user.firstName}
                                 </a>
                                 <div  className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a className="dropdown-item " href="#">Профіль</a>
+                                    <Link className="dropdown-item " to='profile'>Профіль</Link>
                                     <a onClick={handleLogout} className="dropdown-item " >Вийти</a>
                                 </div>
                             </li>)

@@ -15,7 +15,7 @@ module.exports = ( () => {
         if (!template) {
             throw Error('Not a valid templateId');
         }
-        console.log('DATA',data)
+        console.log('DATA',template.generate())
 
         // Send email
 
@@ -23,7 +23,7 @@ module.exports = ( () => {
             to: template.to || to,
             from: config.fromEmail,
             subject: template.subject(),
-            html: template.generate(data),
+            html: template.generate(),
         })
     };
 
