@@ -16,10 +16,20 @@ export default () => {
         return fetchWrapper('/api/auth/reset_password_link', {email:data, _id:_id}, 'post');
     };
 
-   return {
+    const validateToken =  token =>{
+        return fetchWrapper('/api/auth/validate_token', { token }, 'post');
+    };
+
+    const resetPassword =  (password, token ) =>{
+        return fetchWrapper('/api/auth/reset_password', { password, token }, 'post');
+    };
+
+    return {
         loginRegisterSocial,
         createAccount,
         login,
-        requestResetPasswordLink
+        requestResetPasswordLink,
+        validateToken,
+        resetPassword
    }
 }

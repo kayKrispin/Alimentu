@@ -51,18 +51,30 @@ User.isValidPassword = (password, encodedPassword) => {
     return bcrypt.compareSync(password, encodedPassword);
 };
 
-User.generateJWT =  (_id) => {
+User.generateJWT =  (email) => {
     return jwt.sign(
         {
-            _id: _id,
+            email: email,
         },
         config.jwt_secret,
     );
 };
 
-User.generateResetPasswordLink = (email) =>{
+User.generateConfirmationJWT =  (_id) => {
+    return jwt.sign(
+        {
+            _id: _id,
+        },
+        config.jwt_secret,
+        { expiresIn: "1h" }
+    );
+};
+
+User.generateResetPasswordLink = (id) =>{
+    const reset = 'reset'
     console.log('this')
-    return `https://localhost:3000/reset-password/${User.generateJWT(email)}`
+    return `<a href='http://localhost:3000/reset-password/${User.generateConfirmationJWT(id)}'>
+        https://localhost:3000/reset-password/form=reset&resetToken=${User.generateConfirmationJWT(id)}</a>`
 };
 
 module.exports = User;

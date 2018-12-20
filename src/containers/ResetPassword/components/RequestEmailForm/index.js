@@ -8,7 +8,12 @@ class RequestEmailFormContainer extends React.Component {
 
     state = {
         error:false,
+        submitted:false,
     };
+
+    componentDidMount(){
+        console.log('props',this.props)
+    }
 
     handleError = (email) => {
         if(email !== undefined)
@@ -24,7 +29,7 @@ class RequestEmailFormContainer extends React.Component {
             this.setState({error: true});
         } else {
             this.props.handleResetPasswordLink(email, _id)
-            this.setState({error: false});
+            this.setState({ error: false, submitted: true });
          }
     };
 
@@ -43,7 +48,10 @@ class RequestEmailFormContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-   _id: authSelectors.getAuthenticatedUser(state)._id
+   _id: authSelectors.getAuthenticatedUser(state)._id,
+    successMessage: authSelectors.getSuccessRequestResetPassword(state),
+    confirmResetLink: authSelectors.getConfirmResetPassword(state)
+
 });
 
 const mapDispatchToProps = dispatch => ({

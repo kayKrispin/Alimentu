@@ -854,3 +854,19 @@ select {
 
 .resetTitle {
   margin-bottom: 20px !important; }
+
+.requestP {
+  font-size: 20px;
+  text-align: center; }
+
+.requestI {
+  font-size: 25px;
+  margin-right: 10px;
+  padding-top: 4px; }
+
+.resetSpin {
+  position: relative !important;
+  left: 50% !important; }
+
+.requestPass {
+  margin-top: 20px; }

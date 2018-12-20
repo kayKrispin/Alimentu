@@ -17,7 +17,7 @@ const UserArea = ({
                        className={!showDocuments ?'profileP activeP':'profileP'}>Profile</p>
                     <p onClick={() => handleSectionChange(true) }
                        className={!showDocuments ?'profileP activeP':'profileP activeP'}>Documents</p>
-                    <p className='profileP'><Link to='/reset-password' >Reset Password</Link></p>
+                    <p className='profileP'><Link to='/reset_password' >Reset Password</Link></p>
                 </div>
                 <div className="col-md-10">
                     {!showDocuments ? (<div className='innerContainer'>

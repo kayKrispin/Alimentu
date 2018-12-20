@@ -4,6 +4,8 @@ const authenticated = require('./middleware')
 const router = express.Router();
 const service  = require('./services');
 const config  = require('../../config');
+const jwt  =  require("jsonwebtoken");
+
 
 
 
@@ -58,14 +60,14 @@ router.post('/auth/socialLogin',  async (req,res,next) => {
 router.post('/auth/reset_password_link',  async (req,res,next) => {
     const { email } = req.body;
 
-    const user = await User.find({_id:req.body._id});
-
+    const user = await User.find({_id: req.body._id});
 
     if( user ) {
         return await service.sendEmail({
             to: email,
             from:'tara@mail.ru',
-            html:`Щоб відновити пароль перейдіть за цим посиланням </br> <a>${User.generateResetPasswordLink(req.body._id)}</a> `,
+            html:`Щоб відновити пароль перейдіть за цим посиланням </br>
+                ${User.generateResetPasswordLink(req.body._id)} `,
             subject: 'Посиланя для зміни пароля',
         }).then(() => {
             res.json({success:'complete'});
@@ -73,7 +75,37 @@ router.post('/auth/reset_password_link',  async (req,res,next) => {
     }
 });
 
+router.post("/auth/validate_token", (req, res) => {
+    jwt.verify(req.body.token, config.jwt_secret, err => {
+        if (err) {
+            res.status(401).json({error:'Посилання втратило силу.Надішліть запит повторно на ваш емейл'});
+        } else {
+            res.json({});
+        }
+    });
+});
 
+
+router.post("/auth/reset_password", (req, res) => {
+
+    console.log(req.body)
+    const { password, token } = req.body;
+    jwt.verify(token, config.jwt_secret, (err, decoded) => {
+        if (err) {
+            res.status(401).json({ errors: { global: "Invalid token" } });
+        } else {
+            User.findOne({ _id: decoded._id }).then(user => {
+                if (user) {
+                    console.log('us',user)
+                    const newPasword =  User.setPassword(password);
+                    user.update({password:newPasword}).then(()=>res.json({}))
+                } else {
+                    res.status(404).json({ errors: { global: "Invalid token" } });
+                }
+            });
+        }
+    });
+});
 
 
 module.exports = router;

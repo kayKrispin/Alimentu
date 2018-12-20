@@ -15,11 +15,6 @@ import UserArea from './containers/UserArea';
 import TermsScreen from './containers/Terms';
 import ResetPassword from './containers/ResetPassword';
 
-
-
-
-
-
 class App extends Component {
   render() {
       const { location } = this.props;
@@ -29,6 +24,7 @@ class App extends Component {
 
             <Route exact path='/' component={ HomeScreen } />
             <Route exact path='/auth-flow' component={ AuthFlow } />
+            <Route exact  path='/reset-password/:token' component={ ResetPassword } />
 
             <UserRoute
                 location={ location }
@@ -68,7 +64,7 @@ class App extends Component {
             />
             <UserRoute
                 location={ location }
-                path="/reset-password"
+                path="/reset_password"
                 exact
                 component={ ResetPassword }
             />

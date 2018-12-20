@@ -40,7 +40,9 @@ export default ( () => {
         });
 
     const requestResetPasswordHandler = (email,_id, dispatch,requestResetLink) =>
-        authService().requestResetPasswordLink(email, _id);
+        authService().requestResetPasswordLink(email, _id).then(res => res.json()).then(data => {
+            dispatch(requestResetLink(data)
+            )});
 
 
     const populateLocalStorage = (user) => {

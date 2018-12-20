@@ -9,6 +9,8 @@ import {
    ERROR,
    LOGIN,
    REQUST_RESETPASSWORD_LINK,
+   CONFIRM_RESET_PASSWORD_LINK,
+   CHANGE_PASSWORD,
 } from './constans';
 
 
@@ -18,6 +20,8 @@ const defaultState = {
     error: '',
     errType: '',
     requestResetPassword: '',
+    confirmResetPassword: '',
+    passwordChanged:''
 };
 
 export default  (state = defaultState, action) => {
@@ -58,7 +62,17 @@ export default  (state = defaultState, action) => {
         case REQUST_RESETPASSWORD_LINK:
             return {
                 ...state,
-                requestResetPassword:'Success'
+                requestResetPassword: action.payload
+            };
+        case CONFIRM_RESET_PASSWORD_LINK:
+            return {
+                ...state,
+                confirmResetPassword: action.payload
+            };
+        case CHANGE_PASSWORD:
+            return {
+                ...state,
+                passwordChanged: action.payload
             };
         default:
             return state;
