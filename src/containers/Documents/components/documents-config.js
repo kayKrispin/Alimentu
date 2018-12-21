@@ -2,6 +2,7 @@
 
 export default [
     {            header: 'Позовна заява про стягнення аліментів',
+                 validation: 'mainValidation',
         alimentu: {
             schema: [
                 {id: 'courtName', title: 'Назва суду', field: 'Input'},
@@ -84,10 +85,11 @@ export default [
     },
     {
         header: 'Позовна заява про стягнення заборгованості по виплаті аліментів',
+        validation: 'sideValidation',
         alimentu: {
          schema: [
                 {
-                    id: 'e',
+                    id: 'moneyAmount',
                     placeholder: 'Розмір коштів в гривнях',
                     title: 'Присудити кошти на утримання дитини',
                     field: 'Input'
@@ -95,14 +97,14 @@ export default [
 
 
                 {
-                    id: 'g',
+                    id: 'MoneyAmount',
                     placeholder: 'Розмір коштів в гривнях',
                     title: 'Присудити кошти на утримання дитини',
                     field: 'Input'
                 },
 
                 {
-                    id: 'h',
+                    id: 'moneyamount',
                     placeholder: 'Розмір коштів в гривнях',
                     title: 'Присудити кошти на утримання дитини',
                     field: 'Input'

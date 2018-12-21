@@ -12,3 +12,8 @@ export const submitContactForms = () => ({
 export const submitContactForm = statmentOfClaim => {
    return contactService.submitForm(statmentOfClaim)
 };
+
+
+export const test = ( values,requires ) => {
+    console.log(values,requires);
+};

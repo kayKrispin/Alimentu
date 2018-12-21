@@ -15,6 +15,7 @@ class UserAreaContainer extends React.Component {
     componentDidMount() {
        const { _id } = this.props.user;
         this.props.handleGetDocuments(_id)
+       this.props.documents &&  console.log(this.props.documents)
     }
 
     handleSectionChange = (param) => {

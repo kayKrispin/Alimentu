@@ -10,6 +10,10 @@ class HeaderContainer extends React.Component {
         visibleRegister:false,
     };
 
+    componentDidMount(){
+        console.log('ths',this.props)
+    }
+
     showLogin = () => {
         this.setState({
             visible:true,
@@ -68,8 +72,6 @@ class HeaderContainer extends React.Component {
             showRegister:this.showRegister,
             showLogin:this.showLogin,
             hideLogin:this.hideLogin,
-            showLogin: this.showLogin,
-            showRegister: this.showRegister,
             handleLogin: this.handleLogin
         }
     };
@@ -90,6 +92,7 @@ const mapDispatchToprops =  dispatch => ({
         localStorage.clear();
         localStorage.setItem('token',token);
         dispatch(authActions.logout());
+        window.location.replace('/')
     }
 });
 

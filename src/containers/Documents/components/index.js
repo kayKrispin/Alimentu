@@ -7,6 +7,9 @@ import { actions as contactActions, selectors as contactSelectors } from '../../
 import { actions as documentActions, selectors as documentSelectors } from '../../../store/modules/Documents';
 import { selectors as paymentSelectors } from '../../../store/modules/Payment';
 import { selectors as authSelectors } from '../../../store/modules/Auth';
+import required from './requiredFields';
+import { valiateFieldsMain } from './documentsValidation';
+
 
 
 
@@ -20,10 +23,12 @@ class DocumentsContainer extends React.Component {
       visible:false,
       errMessage:'',
       visiblePayment:false,
+      validation:'',
     };
 
     componentDidMount(){
-        console.log('enb',process.env)
+        window.scrollTo(0, 0);
+        console.log(required)
     }
 
     componentWillReceiveProps(nextProps){
@@ -38,37 +43,21 @@ class DocumentsContainer extends React.Component {
             });
         }
     }
-    valiateFields = (signupData) => {
-        let fields = [];
-        const required = [
-            { name: 'courtName', message: 'Please enter Court name' },
-            { name: 'courtCity', message: 'Please enter Court City' },
-            { name: 'courtAdress', message: 'Please complete Court adress' },
-        ];
 
-        required.forEach((key) => {
-            if (!signupData.hasOwnProperty(key.name)) {
-                fields.push(key.message);
-            }
-        });
-
-        return fields;
-    }
 
     handleSubmit = (values) => {
         const { user : { _id } } = this.props;
-        const { statementOfClaime } = this.state;
+        const { statementOfClaime, validation } = this.state;
 
-        console.log('statete',statementOfClaime)
         this.props.handleSaveDocument({userId: _id ,values : values, statementOfClaime:statementOfClaime})
 
-        let errorMessages = this.valiateFields(values);
+        let errorMessages = valiateFieldsMain(values, required[validation])
         if(errorMessages.length){
             this.setState({
                errMessage:errorMessages[0]
             });
         } else {
-            this.setState({visiblePayment:true})
+            this.setState({visiblePayment:true, errMessage:''})
             if( this.props.finishStep) {
                 this.setState({ visiblePayment:false, submitted:true });
                 this.props.handSendEmail(values);
@@ -81,9 +70,17 @@ class DocumentsContainer extends React.Component {
         this.setState({
            statementOfClaime:value,
         }, ()=>{this.setState({
-            formSchema:this.handleChooseSchema() || []});
+            formSchema: this.handleChooseSchema() || [],
+            validation: this.handleChooseRequiredFields() || [],
+        });
 
     })};
+
+    handleChooseRequiredFields = () => {
+      let filteredRequired = alimentuDocs && alimentuDocs.filter(item =>
+            item.header === this.state.statementOfClaime)[0].validation || [];
+        return filteredRequired;
+    }
 
     handleChooseSchema = () => {
         let filtereSchema = alimentuDocs && alimentuDocs.filter(item =>

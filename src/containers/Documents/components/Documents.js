@@ -14,7 +14,6 @@ import template  from '../../../server/src/api/contact/emailTemplates';
 
 
 
-
 const FormItem = Form.Item;
 
 class AdvancedSearchForm extends React.Component {
@@ -31,6 +30,7 @@ class AdvancedSearchForm extends React.Component {
 
     handleReset = () => {
         this.props.form.resetFields();
+
     }
 
     toggle = () => {
