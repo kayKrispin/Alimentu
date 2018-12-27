@@ -5,6 +5,7 @@ import ouathVerification from '../../../../server/src/services/ouathVerification
 
 
 export default ( () => {
+
    const socialLoginHandler = (network, scope,dispatch, socialLogin) =>
        socialService(network).login({ scope }).then(res=>{ return res.authResponse.access_token}).then(accessToken => {
         return ouathVerification(network).verifyUser({accessToken}).then(data => {return authService().loginRegisterSocial(data)

@@ -114,14 +114,16 @@ const Documents = ({
 		<Header/>
         <div style={{paddingTop:'85px',textAlign:'center' }} className="container">
             <div className="row">
-				<h1>Тип документа</h1>
-                <Select
-                    mode="default"
-                    style={{ width: '100%' }}
-                    placeholder="Оберіть позовну заяву"
-					onChange={handleChange}
-                >{children}
-                </Select>
+                <div className="col-md-12">
+                    <h1>Тип документа</h1>
+                    <Select
+                        mode="default"
+                        style={{ width: '100%' }}
+                        placeholder="Оберіть позовну заяву"
+                        onChange={handleChange}
+                    >{children}
+                    </Select>
+                </div>
                 <PaymentForm
                 visible={visiblePayment}
                 onCancel={handlePayment}

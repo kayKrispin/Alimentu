@@ -3,7 +3,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import SocialSignIn from '../SocialSignIn';
 import { connect } from 'react-redux';
 import { actions as authActions, selectors as authSelectors } from '../../../../store/modules/Auth';
-import {error} from "../../../../store/modules/Auth/actions";
+import { error } from "../../../../store/modules/Auth/actions";
 
 
 const FormItem = Form.Item;

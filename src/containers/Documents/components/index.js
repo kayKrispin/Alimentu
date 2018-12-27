@@ -7,12 +7,8 @@ import { actions as contactActions, selectors as contactSelectors } from '../../
 import { actions as documentActions, selectors as documentSelectors } from '../../../store/modules/Documents';
 import { selectors as paymentSelectors } from '../../../store/modules/Payment';
 import { selectors as authSelectors } from '../../../store/modules/Auth';
-import required from './requiredFields';
-import { valiateFieldsMain } from './documentsValidation';
-
-
-
-
+import required from '../../../components/Validation/requiredFields';
+import { valiateFieldsMain } from '../../../components/Validation/documentsValidation';
 
 class DocumentsContainer extends React.Component {
 
@@ -28,7 +24,6 @@ class DocumentsContainer extends React.Component {
 
     componentDidMount(){
         window.scrollTo(0, 0);
-        console.log(required)
     }
 
     componentWillReceiveProps(nextProps){
